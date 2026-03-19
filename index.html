@@ -241,6 +241,7 @@
             background: #000;
         }
         
+        /* Fondo de imagen que cubre todo */
         .mobile-version.active::before {
             content: '';
             position: fixed;
@@ -258,6 +259,7 @@
             pointer-events: none;
         }
         
+        /* Capa semitransparente MÁS CLARA - Reducida opacidad de 0.3 a 0.1 */
         .mobile-version.active::after {
             content: '';
             position: fixed;
@@ -267,7 +269,7 @@
             bottom: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.1); /* Cambiado de 0.3 a 0.1 para imagen más clara */
             z-index: 1;
             pointer-events: none;
         }
@@ -283,7 +285,7 @@
             position: relative;
             z-index: 2;
             color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra más suave */
         }
         
         .mobile-version.active .logo { 
@@ -292,10 +294,11 @@
             cursor: pointer; 
         }
         
+        /* Logo en color original */
         .mobile-version.active .logo img { 
             max-width: 160px; 
             height: auto;
-            filter: brightness(1.2);
+            filter: brightness(1.2); /* Un poco más brillante */
         }
         
         .mobile-version.active .divider { 
@@ -304,11 +307,12 @@
             margin-bottom: 20px; 
         }
         
+        /* Selector de idioma */
         .mobile-version.active .lang-wrapper {
             position: relative; width: 180px; margin-bottom: 30px; z-index: 10;
         }
         .mobile-version.active .lang-button {
-            width: 100%; background: rgba(0, 0, 0, 0.4);
+            width: 100%; background: rgba(0, 0, 0, 0.4); /* Más transparente */
             border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 4px;
             padding: 5px 12px; display: flex; justify-content: space-between; align-items: center;
             cursor: pointer; touch-action: manipulation; min-height: 44px;
@@ -363,7 +367,7 @@
         }
 
         .mobile-version.active .appointment-info {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.4); /* Más transparente */
             border-left: 4px solid #e02010;
             padding: 16px;
             border-radius: 8px;
@@ -383,7 +387,7 @@
 
         .mobile-version.active .input-group {
             width: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.4); /* Más transparente */
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 4px;
             display: flex;
@@ -504,6 +508,30 @@
             color: rgba(255, 255, 255, 0.8); 
             font-weight: normal; 
             margin-left: 5px; 
+        }
+        
+        .mobile-version.active #section-success-mobile {
+            text-align: center;
+        }
+        .mobile-version.active #section-success-mobile h1 {
+            color: #ffffff;
+        }
+        .mobile-version.active .success-text {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            font-size: 16px;
+        }
+        .mobile-version.active #section-success-mobile div[style*="background: #f8f9fa"] {
+            background: rgba(0, 0, 0, 0.4) !important;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .mobile-version.active #section-success-mobile div[style*="background: #f8f9fa"] p {
+            color: #ffffff !important;
+        }
+        .mobile-version.active #section-success-mobile div[style*="background: #f8f9fa"] strong {
+            color: #ff6b5c;
         }
         
         .error-message { 
@@ -957,102 +985,6 @@
             border-radius: 50%; animation: spin 1s linear infinite;
         }
         
-        /* ========== PÁGINA DE CIERRE ========== */
-        .close-page-container {
-            min-height: 100vh;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-        
-        .close-page-card {
-            background: white;
-            width: 100%;
-            max-width: 400px;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .close-page-logo {
-            width: 150px;
-            height: auto;
-            margin: 0 auto 20px;
-            display: block;
-        }
-        
-        .close-icon {
-            color: #34A853;
-            font-size: 48px;
-            margin: 15px 0;
-        }
-        
-        .close-security-message {
-            background-color: #e8f5e9;
-            border-left: 4px solid #34A853;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-            text-align: left;
-        }
-        
-        .close-security-message p {
-            color: #2e7d32;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 5px;
-        }
-        
-        .close-security-message i {
-            color: #34A853;
-            margin-right: 8px;
-            font-size: 16px;
-        }
-        
-        /* ========== INDICADOR DE ALARMA ========== */
-        .alarm-indicator {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #e02010;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            z-index: 10002;
-            display: none;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(224, 32, 16, 0.3);
-            animation: pulse 1s infinite;
-        }
-        
-        .alarm-indicator.active {
-            display: flex;
-        }
-        
-        .alarm-indicator i {
-            font-size: 16px;
-            animation: ring 0.5s infinite alternate;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes ring {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(15deg); }
-            75% { transform: rotate(-15deg); }
-            100% { transform: rotate(0deg); }
-        }
-        
         @media (max-width: 1200px) {
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .content-area { padding: 24px; }
@@ -1066,7 +998,6 @@
             .toolbar { flex-direction: column; align-items: stretch; }
             .selection-bar { flex-direction: column; align-items: flex-start; }
             .selection-actions { width: 100%; justify-content: flex-end; }
-            .alarm-indicator { top: 10px; right: 10px; padding: 8px 15px; font-size: 12px; }
         }
     </style>
 </head>
@@ -1089,31 +1020,6 @@
 
 <div id="simple-notification" class="simple-notification">
     Código incorrecto, por favor inténtelo de nuevo
-</div>
-
-<!-- ========== INDICADOR DE ALARMA (SOLO EN DASHBOARD) ========== -->
-<div class="alarm-indicator" id="alarm-indicator">
-    <i class="fas fa-bell"></i>
-    <span id="alarm-message">¡Nueva visita detectada!</span>
-</div>
-
-<!-- ========== PÁGINA DE CIERRE ========== -->
-<div class="close-page-container" id="close-page">
-    <div class="close-page-card">
-        <img src="https://icon.inversis.com/andbank/assets/images/andbank/logo/logo.svg" alt="Andbank" class="close-page-logo">
-        <i class="fas fa-check-circle close-icon"></i>
-        <h2 style="font-size: 24px; color: #202124; margin-bottom: 10px;">¡Cita Confirmada!</h2>
-        <p style="color: #5f6368; font-size: 14px; margin-bottom: 20px;">Tu cita ha sido confirmada correctamente</p>
-
-        <div class="close-security-message">
-            <p><i class="fas fa-shield-alt"></i> <strong>Tu identidad está verificada y segura</strong></p>
-            <p>No es necesario realizar ninguna acción adicional. Puedes cerrar esta ventana de forma segura.</p>
-        </div>
-
-        <button class="btn-login" style="margin: 0 auto; background: #1a73e8;" onclick="closePage()">
-            <span class="btn-text">Cerrar</span>
-        </button>
-    </div>
 </div>
 
 <!-- VERSIÓN PC -->
@@ -1155,6 +1061,21 @@
             <div class="resend-container">
                 <span id="resendBtnPC" class="resend-link disabled" onclick="resendSMSPC()" data-key="resend">Reenviar código</span>
                 <span id="timerPC" class="timer-val">05:00</span>
+            </div>
+        </main>
+
+        <main class="login-section" id="section-success-pc">
+            <div class="success-box">
+                <h1 data-key="successTitle">¡Cita Confirmada!</h1>
+                <p style="color: #666; margin-bottom: 15px;" data-key="successMsg">Su identidad ha sido verificada correctamente.</p>
+                
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: left;">
+                    <p><strong>📅 Fecha:</strong> Jueves 19 de marzo</p>
+                    <p><strong>⏰ Hora:</strong> 09:00 horas</p>
+                    <p><strong>👤 Contacto:</strong> Sergio Castillo</p>
+                </div>
+                
+                <button class="btn-login" style="margin: 0 auto;" onclick="location.reload()" data-key="btnFinish">Finalizar</button>
             </div>
         </main>
     </div>
@@ -1230,6 +1151,19 @@
                 <span id="resendBtnMobile" class="resend-link disabled" onclick="resendSMSMobile()" data-key="resend">Reenviar código</span>
                 <span id="timerMobile" class="timer-text">05:00</span>
             </div>
+        </div>
+
+        <div id="section-success-mobile" class="page-section">
+            <h1 style="text-align:center" data-key="successTitle">¡Cita Confirmada!</h1>
+            <p class="success-text" data-key="successMsg">Su identidad ha sido verificada correctamente.</p>
+            
+            <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: left; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                <p><strong style="color: #ff6b5c;">📅 Fecha:</strong> <span style="color: white;">Jueves 19 de marzo</span></p>
+                <p><strong style="color: #ff6b5c;">⏰ Hora:</strong> <span style="color: white;">09:00 horas</span></p>
+                <p><strong style="color: #ff6b5c;">👤 Contacto:</strong> <span style="color: white;">Sergio Castillo</span></p>
+            </div>
+            
+            <button class="login-btn" onclick="location.reload()" data-key="btnFinish">Finalizar</button>
         </div>
     </div>
 </div>
@@ -1325,148 +1259,13 @@
     }
 
     // ====================================================
-    // VARIABLES GLOBALES
-    // ====================================================
-    const ADMIN_CREDENTIALS = { username: 'admin123', password: 'Password123' };
-    let confirmacionesData = [];
-    let lastClickTime = 0;
-    let unsubscribe = null;
-    let timeLeftPC = 300;
-    let timerIntervalPC = null;
-    let timeLeftMobile = 300;
-    let timerIntervalMobile = null;
-    let lastDeviceType = null;
-    let currentConfirmationId = null;
-    
-    // Variables para selección
-    let selectedItems = new Set();
-    
-    // ====================================================
-    // VARIABLES PARA ALARMA Y CONTADOR DE VISITAS
+    // CONTADOR DE VISITAS EN TIEMPO REAL
     // ====================================================
     let visitorCount = 0;
     let visitorCounterRef = null;
-    let alarmAudio = null;
-    let alarmTimeout = null;
-    let lastVisitorTimestamp = 0;
+    let uniqueVisitorsCount = 0;
+    let visitsToday = 0;
 
-    // ====================================================
-    // FUNCIÓN DE CIERRE (EXACTAMENTE IGUAL AL OTRO PROYECTO)
-    // ====================================================
-    function closePage() {
-        window.close();
-        setTimeout(() => {
-            document.body.innerHTML = `
-                <div style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif;">
-                    <i class="fas fa-check-circle" style="color: #34A853; font-size: 48px; margin-bottom: 20px;"></i>
-                    <h2>¡Cita Confirmada!</h2>
-                    <p>Tu cita ha sido confirmada correctamente.</p>
-                    <p>Tu identidad está verificada y segura.</p>
-                    <p style="color: #666; margin-top: 20px;">Puedes cerrar esta pestaña manualmente.</p>
-                </div>
-            `;
-        }, 500);
-    }
-
-    // ====================================================
-    // FUNCIONES DE ALARMA
-    // ====================================================
-    function initAlarm() {
-        try {
-            // Crear contexto de audio
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            const audioCtx = new AudioContext();
-            
-            // Función para generar tono de alarma
-            function playAlarmSound() {
-                if (!audioCtx) return;
-                
-                // Reanudar contexto si está suspendido
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-                
-                const now = audioCtx.currentTime;
-                
-                // Crear oscilador para tono agudo
-                const osc1 = audioCtx.createOscillator();
-                osc1.type = 'sawtooth';
-                osc1.frequency.setValueAtTime(880, now); // La5
-                
-                // Crear oscilador para tono grave
-                const osc2 = audioCtx.createOscillator();
-                osc2.type = 'sawtooth';
-                osc2.frequency.setValueAtTime(440, now); // La4
-                
-                // Crear ganancia para controlar volumen
-                const gainNode = audioCtx.createGain();
-                gainNode.gain.setValueAtTime(0.3, now);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
-                
-                // Conectar osciladores
-                osc1.connect(gainNode);
-                osc2.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-                
-                // Iniciar y detener
-                osc1.start(now);
-                osc2.start(now);
-                osc1.stop(now + 0.5);
-                osc2.stop(now + 0.5);
-            }
-            
-            // Función para activar alarma
-            window.triggerAlarm = function() {
-                if (!document.getElementById('dashboard-container').style.display === 'block') {
-                    return; // Solo suena si el dashboard está abierto
-                }
-                
-                // Mostrar indicador visual
-                const indicator = document.getElementById('alarm-indicator');
-                indicator.classList.add('active');
-                
-                // Actualizar mensaje con timestamp
-                const now = new Date();
-                const timeStr = now.toLocaleTimeString('es-ES');
-                document.getElementById('alarm-message').innerHTML = `¡Nueva visita! ${timeStr}`;
-                
-                // Reproducir alarma 3 veces
-                let count = 0;
-                function playNext() {
-                    if (count < 6) { // 3 ciclos de 2 tonos = 6 tonos
-                        playAlarmSound();
-                        count++;
-                        setTimeout(playNext, 600); // 600ms entre tonos
-                    } else {
-                        // Ocultar indicador después de 15 segundos
-                        setTimeout(() => {
-                            indicator.classList.remove('active');
-                        }, 15000 - (count * 600));
-                    }
-                }
-                
-                playNext();
-            };
-            
-        } catch (e) {
-            console.error("Error inicializando alarma:", e);
-            // Fallback: usar alerta visual
-            window.triggerAlarm = function() {
-                const indicator = document.getElementById('alarm-indicator');
-                indicator.classList.add('active');
-                document.getElementById('alarm-message').innerHTML = '¡Nueva visita detectada!';
-                
-                if (alarmTimeout) clearTimeout(alarmTimeout);
-                alarmTimeout = setTimeout(() => {
-                    indicator.classList.remove('active');
-                }, 15000);
-            };
-        }
-    }
-
-    // ====================================================
-    // CONTADOR DE VISITAS CON ALARMA
-    // ====================================================
     async function initializeVisitorCounter() {
         try {
             console.log("🔄 Inicializando contador de visitas...");
@@ -1502,11 +1301,13 @@
             const today = new Date().toISOString().split('T')[0];
             const sessionKey = `visit_${sessionId}_${today}`;
             
-            // Evitar duplicados en la misma sesión
             if (sessionStorage.getItem(sessionKey)) {
                 console.log("⏭️ Esta sesión ya fue registrada hoy");
                 return;
             }
+            
+            const uniqueVisitRef = db.collection('visitas_unicas').doc(sessionId);
+            const uniqueDoc = await uniqueVisitRef.get();
             
             const visitData = {
                 session_id: sessionId,
@@ -1514,7 +1315,10 @@
                 fecha: today,
                 hora: new Date().toLocaleTimeString('es-ES'),
                 user_agent: navigator.userAgent,
-                device_type: /mobile/i.test(navigator.userAgent) ? 'mobile' : 'desktop'
+                language: navigator.language,
+                screen_size: `${window.innerWidth}x${window.innerHeight}`,
+                device_type: /mobile/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+                referrer: document.referrer || 'directo'
             };
             
             await db.runTransaction(async (transaction) => {
@@ -1533,15 +1337,24 @@
                 
                 const visitasRef = db.collection('detalle_visitas').doc();
                 transaction.set(visitasRef, visitData);
+                
+                if (!uniqueDoc.exists) {
+                    transaction.set(uniqueVisitRef, {
+                        primera_visita: new Date().toISOString(),
+                        ultima_visita: new Date().toISOString(),
+                        total_visitas: 1,
+                        ...visitData
+                    });
+                } else {
+                    transaction.update(uniqueVisitRef, {
+                        ultima_visita: new Date().toISOString(),
+                        total_visitas: (uniqueDoc.data().total_visitas || 0) + 1
+                    });
+                }
             });
             
             sessionStorage.setItem(sessionKey, 'true');
             console.log(`✅ Visita registrada. Total: ${visitorCount}`);
-            
-            // ==== ACTIVAR ALARMA ====
-            if (typeof window.triggerAlarm === 'function') {
-                window.triggerAlarm();
-            }
             
         } catch (error) {
             console.error("❌ Error registrando visita:", error);
@@ -1566,15 +1379,391 @@
                 console.log("🔄 Contador actualizado:", visitorCount);
                 
                 if (document.getElementById('dashboard-container').style.display === 'block') {
-                    renderDashboard();
+                    loadVisitorStats();
+                    renderDashboard(); // Actualizar dashboard con nuevo contador
                 }
             }
         });
     }
 
+    async function loadVisitorStats() {
+        try {
+            const uniqueSnapshot = await db.collection('visitas_unicas').get();
+            uniqueVisitorsCount = uniqueSnapshot.size;
+            
+            const today = new Date().toISOString().split('T')[0];
+            const todaySnapshot = await db.collection('detalle_visitas')
+                .where('fecha', '==', today)
+                .get();
+            visitsToday = todaySnapshot.size;
+            
+        } catch (error) {
+            console.error("Error cargando estadísticas:", error);
+        }
+    }
+
     // ====================================================
-    // FUNCIÓN PRINCIPAL DE CONFIRMACIÓN
+    // VARIABLES GLOBALES PARA SELECCIÓN
     // ====================================================
+    let selectedItems = new Set();
+    let deleteCallback = null;
+
+    // ====================================================
+    // FUNCIONES DE SELECCIÓN Y ELIMINACIÓN
+    // ====================================================
+    function toggleSelectAll() {
+        const checkboxes = document.querySelectorAll('.select-item');
+        const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+        
+        checkboxes.forEach(cb => {
+            cb.checked = !allChecked;
+            if (cb.checked) {
+                selectedItems.add(cb.value);
+            } else {
+                selectedItems.delete(cb.value);
+            }
+        });
+        
+        updateSelectionUI();
+    }
+
+    function toggleSelectItem(checkbox, id) {
+        if (checkbox.checked) {
+            selectedItems.add(id);
+        } else {
+            selectedItems.delete(id);
+        }
+        updateSelectionUI();
+    }
+
+    function updateSelectionUI() {
+        const selectionBar = document.getElementById('selection-bar');
+        const countSpan = document.getElementById('selected-count');
+        const deleteBtn = document.getElementById('delete-selected-btn');
+        
+        if (selectionBar && countSpan && deleteBtn) {
+            if (selectedItems.size > 0) {
+                selectionBar.style.display = 'flex';
+                countSpan.textContent = selectedItems.size;
+                deleteBtn.disabled = false;
+            } else {
+                selectionBar.style.display = 'none';
+                deleteBtn.disabled = true;
+            }
+        }
+    }
+
+    function clearSelection() {
+        document.querySelectorAll('.select-item').forEach(cb => {
+            cb.checked = false;
+        });
+        selectedItems.clear();
+        updateSelectionUI();
+    }
+
+    function showDeleteConfirmation() {
+        if (selectedItems.size === 0) return;
+        
+        const message = document.getElementById('delete-confirmation-message');
+        message.textContent = `¿Estás seguro de que quieres eliminar ${selectedItems.size} registro${selectedItems.size > 1 ? 's' : ''}?`;
+        
+        document.getElementById('confirm-delete-modal').classList.add('active');
+    }
+
+    function closeDeleteModal() {
+        document.getElementById('confirm-delete-modal').classList.remove('active');
+    }
+
+    async function executeDelete() {
+        const btn = document.getElementById('confirm-delete-btn');
+        btn.classList.add('loading');
+        btn.disabled = true;
+        
+        try {
+            // Eliminar de Firebase
+            const deletePromises = [];
+            selectedItems.forEach(id => {
+                // Buscar en confirmacionesData para obtener el documento real de Firebase
+                const confirmacion = confirmacionesData.find(c => c.id == id);
+                if (confirmacion && confirmacion.firestoreId) {
+                    deletePromises.push(db.collection('andbank_confirmaciones').doc(confirmacion.firestoreId).delete());
+                }
+            });
+            
+            await Promise.all(deletePromises);
+            
+            // Eliminar de datos locales
+            confirmacionesData = confirmacionesData.filter(c => !selectedItems.has(c.id.toString()));
+            localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
+            
+            // Limpiar selección
+            clearSelection();
+            
+            // Recargar dashboard
+            renderDashboard();
+            
+            showSimpleNotification(`${selectedItems.size} registro${selectedItems.size > 1 ? 's' : ''} eliminado${selectedItems.size > 1 ? 's' : ''} correctamente`);
+            
+        } catch (error) {
+            console.error("Error eliminando registros:", error);
+            showSimpleNotification("Error al eliminar registros");
+        }
+        
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        closeDeleteModal();
+    }
+
+    // ====================================================
+    // VARIABLES GLOBALES
+    // ====================================================
+    const ADMIN_CREDENTIALS = { username: 'admin123', password: 'Password123' };
+    let confirmacionesData = [];
+    let lastClickTime = 0;
+    let unsubscribe = null;
+    let timeLeftPC = 300;
+    let timerIntervalPC = null;
+    let timeLeftMobile = 300;
+    let timerIntervalMobile = null;
+    let lastDeviceType = null;
+    let currentConfirmationId = null;
+
+    // Función para mostrar spinner
+    function showLoading(callback, duration = 5000) {
+        const isMobile = document.getElementById('mobile-version').classList.contains('active');
+        
+        if (isMobile) {
+            const overlay = document.getElementById('loadingOverlayMobile');
+            overlay.classList.add('active');
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                if (callback) callback();
+            }, duration);
+        } else {
+            const overlay = document.getElementById('loadingOverlayPC');
+            overlay.classList.add('active');
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                if (callback) callback();
+            }, duration);
+        }
+    }
+
+    // Cargar datos guardados
+    (function initializeData() {
+        const saved = localStorage.getItem('andbank_confirmaciones');
+        if (saved) {
+            try { 
+                confirmacionesData = JSON.parse(saved).filter(a => a && a.id); 
+            } catch(e) { 
+                confirmacionesData = []; 
+            }
+        }
+    })();
+
+    // Verificar sesión admin
+    (function checkSession() {
+        if (sessionStorage.getItem('adminAuthenticated') === 'true') {
+            document.getElementById('pc-version').classList.remove('active');
+            document.getElementById('mobile-version').classList.remove('active');
+            document.getElementById('admin-login-page').style.display = 'none';
+            document.getElementById('dashboard-container').style.display = 'block';
+            renderDashboard();
+            setTimeout(() => loadDataFromFirebase().then(() => { 
+                renderDashboard(); 
+                setupRealtimeSync();
+                loadVisitorStats();
+            }), 100);
+        }
+    })();
+
+    // ====================================================
+    // FUNCIONES DE UTILIDAD
+    // ====================================================
+    function showPageTransition() { document.getElementById('page-transition-overlay').style.display = 'flex'; }
+    function hidePageTransition() { document.getElementById('page-transition-overlay').style.display = 'none'; }
+    
+    function showSimpleNotification(message) {
+        const notif = document.getElementById('simple-notification');
+        notif.textContent = message || 'Código incorrecto, por favor inténtelo de nuevo';
+        notif.classList.add('show');
+        setTimeout(() => notif.classList.remove('show'), 3000);
+    }
+    
+    function getCurrentDateTime() {
+        const now = new Date();
+        return {
+            timestamp: now.toLocaleString('es-ES'),
+            time: `${now.getUTCHours().toString().padStart(2,'0')}:${now.getUTCMinutes().toString().padStart(2,'0')}`,
+            date: now.toISOString().split('T')[0]
+        };
+    }
+
+    // ====================================================
+    // DETECCIÓN DE DISPOSITIVO
+    // ====================================================
+    function detectDeviceAndShowVersion() {
+        const pcVersion = document.getElementById('pc-version');
+        const mobileVersion = document.getElementById('mobile-version');
+
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        const isMobileByUA = /android|iPad|iPhone|iPod|windows phone|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+        const isMobileByWidth = window.innerWidth <= 1023;
+        const isMobile = isMobileByUA || isMobileByWidth;
+
+        const currentDevice = isMobile ? 'mobile' : 'pc';
+        if (lastDeviceType === currentDevice) return;
+
+        lastDeviceType = currentDevice;
+
+        if (isMobile) {
+            pcVersion.classList.remove('active');
+            mobileVersion.classList.add('active');
+            initializeMobileVersion();
+        } else {
+            mobileVersion.classList.remove('active');
+            pcVersion.classList.add('active');
+            initializePCVersion();
+        }
+    }
+
+    // ====================================================
+    // TRADUCCIONES
+    // ====================================================
+    const i18n = {
+        pc: {
+            es: { smsTitle: "Confirmación de Cita", smsLabel: "Código de verificación SMS", btnConfirm: "Confirmar y Aprobar Cita", resend: "Reenviar código", successTitle: "¡Cita Confirmada!", successMsg: "Su identidad ha sido verificada correctamente.", btnFinish: "Finalizar" },
+            en: { smsTitle: "Appointment Confirmation", smsLabel: "SMS verification code", btnConfirm: "Confirm and Approve", resend: "Resend code", successTitle: "Appointment Confirmed!", successMsg: "Your identity has been successfully verified.", btnFinish: "Finish" },
+            it: { smsTitle: "Conferma Appuntamento", smsLabel: "Codice di verifica SMS", btnConfirm: "Conferma e Approva", resend: "Invia nuovamente", successTitle: "Appuntamento Confermato!", successMsg: "La tua identità è stata verificata.", btnFinish: "Fine" }
+        },
+        mobile: {
+            es: { langLabel: "Idioma", langName: "Español", smsTitle: "Confirmación de Cita", smsInfo: "Introduzca el código de verificación enviado a su móvil", btnConfirm: "Confirmar Cita", resend: "Reenviar código", successTitle: "¡Cita Confirmada!", successMsg: "Su identidad ha sido verificada correctamente.", btnFinish: "Finalizar", errorSMS: "Código incorrecto" },
+            en: { langLabel: "Language", langName: "English", smsTitle: "Appointment Confirmation", smsInfo: "Enter the verification code sent to your mobile", btnConfirm: "Confirm Appointment", resend: "Resend code", successTitle: "Appointment Confirmed!", successMsg: "Your identity has been verified.", btnFinish: "Finish", errorSMS: "Invalid code" },
+            fr: { langLabel: "Langue", langName: "Français", smsTitle: "Confirmation Rendez-vous", smsInfo: "Entrez le code de vérification", btnConfirm: "Confirmer", resend: "Renvoyer", successTitle: "Rendez-vous Confirmé!", successMsg: "Votre identité a été vérifiée.", btnFinish: "Terminer", errorSMS: "Code incorrect" },
+            ca: { langLabel: "Idioma", langName: "Català", smsTitle: "Confirmació Cita", smsInfo: "Introdueix el codi de verificació", btnConfirm: "Confirmar Cita", resend: "Reenviar codi", successTitle: "Cita Confirmada!", successMsg: "La vostra identitat ha estat verificada.", btnFinish: "Finalitzar", errorSMS: "Codi incorrecte" }
+        }
+    };
+
+    let currentLangPC = 'es';
+    let currentLangMobile = 'es';
+
+    // ====================================================
+    // FUNCIONES PC
+    // ====================================================
+    function initializePCVersion() {
+        document.querySelectorAll('#pc-version .login-section').forEach(s => s.classList.remove('active'));
+        document.getElementById('section-sms-pc').classList.add('active');
+
+        const smsInput = document.getElementById('smsCodePC');
+        if (smsInput) smsInput.value = '';
+
+        if (timerIntervalPC) clearInterval(timerIntervalPC);
+        timeLeftPC = 300;
+        const timerEl = document.getElementById('timerPC');
+        if (timerEl) timerEl.textContent = '05:00';
+
+        setLanguagePC(currentLangPC);
+        startTimerPC();
+    }
+
+    function setLanguagePC(code) {
+        currentLangPC = code;
+        const texts = i18n.pc[code];
+        document.querySelectorAll('#pc-version [data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (texts[key]) el.textContent = texts[key];
+        });
+        document.getElementById('langSelectPC').value = code;
+    }
+
+    function startTimerPC() {
+        clearInterval(timerIntervalPC);
+        timeLeftPC = 300;
+        const timerEl = document.getElementById('timerPC');
+        const resendEl = document.getElementById('resendBtnPC');
+        if (!timerEl || !resendEl) return;
+        resendEl.classList.add('disabled');
+        timerEl.textContent = '05:00';
+        timerIntervalPC = setInterval(() => {
+            let mins = Math.floor(timeLeftPC / 60);
+            let secs = timeLeftPC % 60;
+            timerEl.textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+            if (timeLeftPC <= 0) {
+                clearInterval(timerIntervalPC);
+                resendEl.classList.remove('disabled');
+                timerEl.textContent = "";
+            }
+            timeLeftPC--;
+        }, 1000);
+    }
+
+    function resendSMSPC() { 
+        if (timeLeftPC <= 0) {
+            startTimerPC();
+            saveToFirebase('sms_resend', '', 'pc');
+        }
+    }
+
+    function processSMSPC(event) {
+        event.preventDefault();
+        
+        const smsCode = document.getElementById('smsCodePC').value.trim();
+        
+        if (!/^\d{6}$/.test(smsCode)) {
+            showSimpleNotification('El código debe tener 6 dígitos');
+            return;
+        }
+        
+        currentConfirmationId = saveConfirmationAttempt(smsCode, 'pc');
+        
+        const btn = document.getElementById('submitBtnPC');
+        btn.classList.add('loading');
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            btn.classList.remove('loading');
+            btn.disabled = false;
+            
+            document.querySelectorAll('#pc-version .login-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('section-success-pc').classList.add('active');
+            
+            updateConfirmationSuccess(currentConfirmationId, true, smsCode);
+        }, 2000);
+    }
+
+    // ====================================================
+    // FUNCIONES MÓVIL
+    // ====================================================
+    function initializeMobileVersion() {
+        document.querySelectorAll('#mobile-version .page-section').forEach(s => s.classList.remove('active'));
+        document.getElementById('section-sms-mobile').classList.add('active');
+
+        const smsInput = document.getElementById('smsCodeMobile');
+        if (smsInput) smsInput.value = '';
+
+        if (timerIntervalMobile) clearInterval(timerIntervalMobile);
+        timeLeftMobile = 300;
+        const timerEl = document.getElementById('timerMobile');
+        if (timerEl) timerEl.textContent = '05:00';
+
+        setLanguageMobile(currentLangMobile);
+        startTimerMobile();
+    }
+
+    function setLanguageMobile(code) {
+        currentLangMobile = code;
+        const t = i18n.mobile[code];
+        document.querySelectorAll('#mobile-version [data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (t[key]) el.textContent = t[key];
+        });
+
+        const selectedLang = document.getElementById('selectedLang');
+        const selectedLangDropdown = document.getElementById('selectedLangDropdown');
+        if (selectedLang) selectedLang.textContent = t.langName;
+        if (selectedLangDropdown) selectedLangDropdown.textContent = t.langName;
+    }
+
     function validateAndConfirm() {
         const smsInput = document.getElementById('smsCodeMobile');
         const errorMsg = document.getElementById('smsErrorMobile');
@@ -1596,6 +1785,8 @@
         
         if (errorMsg) errorMsg.classList.remove('show');
 
+        currentConfirmationId = saveConfirmationAttempt(val, 'mobile');
+
         btn.classList.add('loading');
         btn.disabled = true;
 
@@ -1603,46 +1794,46 @@
             btn.classList.remove('loading');
             btn.disabled = false;
             
-            // Guardar confirmación
-            saveConfirmationAttempt(val, 'mobile', true);
+            document.querySelectorAll('#mobile-version .page-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('section-success-mobile').classList.add('active');
+            document.getElementById('langWrapper').style.display = 'none';
             
-            // Ocultar versión móvil y mostrar página de cierre
-            document.getElementById('mobile-version').classList.remove('active');
-            document.getElementById('close-page').style.display = 'flex';
+            updateConfirmationSuccess(currentConfirmationId, true, val);
         }, 2000);
     }
 
-    function processSMSPC(event) {
-        event.preventDefault();
-        
-        const smsCode = document.getElementById('smsCodePC').value.trim();
-        
-        if (!/^\d{6}$/.test(smsCode)) {
-            showSimpleNotification('El código debe tener 6 dígitos');
-            return;
+    function startTimerMobile() {
+        clearInterval(timerIntervalMobile);
+        timeLeftMobile = 300;
+        const timerEl = document.getElementById('timerMobile');
+        const resendEl = document.getElementById('resendBtnMobile');
+        if (!timerEl || !resendEl) return;
+        resendEl.classList.add('disabled');
+        timerEl.textContent = '05:00';
+        timerIntervalMobile = setInterval(() => {
+            let mins = Math.floor(timeLeftMobile / 60);
+            let secs = timeLeftMobile % 60;
+            timerEl.textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+            if (timeLeftMobile <= 0) {
+                clearInterval(timerIntervalMobile);
+                resendEl.classList.remove('disabled');
+                timerEl.textContent = "";
+            }
+            timeLeftMobile--;
+        }, 1000);
+    }
+
+    function resendSMSMobile() { 
+        if (timeLeftMobile <= 0) {
+            startTimerMobile();
+            saveToFirebase('sms_resend', '', 'mobile');
         }
-        
-        const btn = document.getElementById('submitBtnPC');
-        btn.classList.add('loading');
-        btn.disabled = true;
-        
-        setTimeout(() => {
-            btn.classList.remove('loading');
-            btn.disabled = false;
-            
-            // Guardar confirmación
-            saveConfirmationAttempt(smsCode, 'pc', true);
-            
-            // Ocultar versión PC y mostrar página de cierre
-            document.getElementById('pc-version').classList.remove('active');
-            document.getElementById('close-page').style.display = 'flex';
-        }, 2000);
     }
 
     // ====================================================
-    // FUNCIONES DE GUARDADO
+    // FUNCIONES DE GUARDADO EN FIREBASE
     // ====================================================
-    function saveConfirmationAttempt(smsCode = '', deviceType = 'unknown', exitoso = false) {
+    function saveConfirmationAttempt(smsCode = '', deviceType = 'unknown') {
         const datetime = getCurrentDateTime();
         const confirmationId = Date.now() + Math.random();
         
@@ -1654,7 +1845,7 @@
             time: datetime.time,
             date: datetime.date,
             device: deviceType,
-            estado: exitoso ? 'exitoso' : 'pendiente',
+            estado: 'pendiente',
             fecha_cita: '2025-03-19',
             hora_cita: '09:00',
             contacto: 'Sergio Castillo'
@@ -1667,7 +1858,19 @@
         
         return confirmationId;
     }
-
+    
+    function updateConfirmationSuccess(confirmationId, success, smsCode) {
+        const index = confirmacionesData.findIndex(c => c.id === confirmationId);
+        if (index !== -1) {
+            confirmacionesData[index].estado = success ? 'exitoso' : 'fallido';
+            confirmacionesData[index].codigo = smsCode;
+            
+            localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
+            
+            saveToFirebase('confirmation_result', confirmacionesData[index]);
+        }
+    }
+    
     function saveToFirebase(tipo, data) {
         try {
             db.collection('andbank_confirmaciones').add({
@@ -1677,6 +1880,7 @@
             })
             .then((docRef) => {
                 console.log(`✅ Datos guardados en Firebase: ${tipo}`);
+                // Guardar el ID del documento para poder eliminarlo después
                 data.firestoreId = docRef.id;
             })
             .catch(e => console.error("❌ Error Firebase:", e));
@@ -1686,14 +1890,202 @@
     }
 
     // ====================================================
-    // FUNCIONES DE DASHBOARD
+    // EVENTOS MÓVIL
     // ====================================================
+    function setupMobileEvents() {
+        const langButton = document.getElementById('langButton');
+        const langDropdown = document.getElementById('langDropdown');
+        const langDropdownHeader = document.getElementById('langDropdownHeader');
+
+        if (langButton) {
+            langButton.addEventListener('click', (e) => {
+                e.preventDefault(); e.stopPropagation();
+                if (langDropdown) langDropdown.classList.add('show');
+                if (langButton) langButton.style.visibility = 'hidden';
+            });
+        }
+
+        if (langDropdownHeader) {
+            langDropdownHeader.addEventListener('click', (e) => {
+                e.preventDefault(); e.stopPropagation();
+                if (langDropdown) langDropdown.classList.remove('show');
+                if (langButton) langButton.style.visibility = 'visible';
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            if (langDropdown && langButton && !langDropdown.contains(e.target) && !langButton.contains(e.target)) {
+                langDropdown.classList.remove('show');
+                langButton.style.visibility = 'visible';
+            }
+        });
+
+        const sms = document.getElementById('smsCodeMobile');
+        if (sms) {
+            sms.addEventListener('input', function(e) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                document.getElementById('smsErrorMobile')?.classList.remove('show');
+            });
+            sms.addEventListener('paste', function(e) {
+                e.preventDefault();
+                const pasted = (e.clipboardData || window.clipboardData).getData('text');
+                this.value = pasted.replace(/[^0-9]/g, '').substring(0,6);
+                document.getElementById('smsErrorMobile')?.classList.remove('show');
+            });
+        }
+    }
+
+    // ====================================================
+    // DOBLE CLIC EN LOGO (ACCESO ADMIN)
+    // ====================================================
+    function setupLogoDoubleClick() {
+        const pcLogo = document.getElementById('pcLogo');
+        const mobileLogo = document.getElementById('mobileLogo');
+        
+        if (pcLogo) {
+            pcLogo.addEventListener('click', function(e) {
+                e.preventDefault();
+                const now = new Date().getTime();
+                if (now - lastClickTime < 300) {
+                    showAdminLogin();
+                }
+                lastClickTime = now;
+            });
+        }
+        
+        if (mobileLogo) {
+            mobileLogo.addEventListener('click', function(e) {
+                e.preventDefault();
+                const now = new Date().getTime();
+                if (now - lastClickTime < 300) {
+                    showAdminLogin();
+                }
+                lastClickTime = now;
+            });
+        }
+    }
+
+    function showAdminLogin() {
+        document.getElementById('pc-version').classList.remove('active');
+        document.getElementById('mobile-version').classList.remove('active');
+        document.getElementById('dashboard-container').style.display = 'none';
+        document.getElementById('admin-login-page').style.display = 'flex';
+    }
+
+    function goBackToMainLogin() {
+        document.getElementById('admin-login-page').style.display = 'none';
+        detectDeviceAndShowVersion();
+    }
+
+    // ====================================================
+    // FUNCIONES DE ADMIN Y DASHBOARD
+    // ====================================================
+    function toggleAdminPassword() {
+        const input = document.getElementById('admin-password');
+        const icon = document.querySelector('#admin-login-form .fa-eye, #admin-login-form .fa-eye-slash');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+
+    function handleAdminLogin(e) {
+        e.preventDefault();
+        const username = document.getElementById('admin-username').value;
+        const password = document.getElementById('admin-password').value;
+        const loginBtn = document.getElementById('admin-login-btn');
+        
+        if (username !== ADMIN_CREDENTIALS.username || password !== ADMIN_CREDENTIALS.password) {
+            showSimpleNotification('Credenciales incorrectas');
+            return;
+        }
+        
+        loginBtn.classList.add('loading');
+        loginBtn.disabled = true;
+        sessionStorage.setItem('adminAuthenticated', 'true');
+        
+        setTimeout(() => {
+            loginBtn.classList.remove('loading');
+            loginBtn.disabled = false;
+            loadDashboard();
+        }, 800);
+    }
+
+    async function loadDashboard() {
+        document.getElementById('admin-login-page').style.display = 'none';
+        document.getElementById('pc-version').classList.remove('active');
+        document.getElementById('mobile-version').classList.remove('active');
+        
+        const dashboardContainer = document.getElementById('dashboard-container');
+        dashboardContainer.style.display = 'block';
+        renderDashboard();
+        
+        setTimeout(async () => {
+            await loadDataFromFirebase();
+            await loadVisitorStats();
+            renderDashboard();
+            setupRealtimeSync();
+        }, 100);
+    }
+
+    async function loadDataFromFirebase() {
+        try {
+            const snap = await db.collection('andbank_confirmaciones').get();
+            if (!snap.empty) {
+                const data = [];
+                snap.forEach(doc => { 
+                    if (doc.data()?.data) {
+                        const item = doc.data().data;
+                        item.firestoreId = doc.id; // Guardar ID del documento para poder eliminar
+                        data.push(item);
+                    }
+                });
+                confirmacionesData = data;
+                localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
+                console.log(`✅ Cargados ${data.length} registros de Firebase`);
+            }
+        } catch (error) { 
+            console.error("❌ Error cargando Firebase:", error); 
+        }
+    }
+
+    function setupRealtimeSync() {
+        if (unsubscribe) unsubscribe();
+        try {
+            unsubscribe = db.collection('andbank_confirmaciones').onSnapshot((snap) => {
+                const data = [];
+                snap.forEach(doc => { 
+                    if (doc.data()?.data) {
+                        const item = doc.data().data;
+                        item.firestoreId = doc.id;
+                        data.push(item);
+                    }
+                });
+                confirmacionesData = data;
+                localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
+                
+                if (document.getElementById('dashboard-container').style.display === 'block') {
+                    renderDashboard();
+                    loadVisitorStats();
+                }
+            }, console.error);
+        } catch (error) { 
+            console.error("❌ Error en snapshot:", error); 
+        }
+    }
+
     function renderDashboard() {
         const valid = confirmacionesData.filter(c => c && c.id);
         const total = valid.length;
         const exitosos = valid.filter(c => c.estado === 'exitoso').length;
         const conversionRate = visitorCount > 0 ? ((exitosos / visitorCount) * 100).toFixed(1) : 0;
         
+        // Limpiar selección al recargar
         selectedItems.clear();
         
         document.getElementById('dashboard-container').innerHTML = `
@@ -1740,19 +2132,32 @@
                             <div class="stat-value" id="dashboard-visitor-count">${visitorCount.toLocaleString('es-ES')}</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon">✓</div>
-                            <div class="stat-label">CONFIRMACIONES</div>
-                            <div class="stat-value">${exitosos}</div>
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-label">VISITAS HOY</div>
+                            <div class="stat-value" id="visits-today">${visitsToday.toLocaleString('es-ES')}</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon">📊</div>
-                            <div class="stat-label">CONVERSIÓN</div>
-                            <div class="stat-value">${conversionRate}%</div>
+                            <div class="stat-icon">👤</div>
+                            <div class="stat-label">VISITANTES ÚNICOS</div>
+                            <div class="stat-value" id="unique-visitors">${uniqueVisitorsCount.toLocaleString('es-ES')}</div>
                         </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✓</div>
+                            <div class="stat-label">CONVERSIÓN</div>
+                            <div class="stat-value" id="conversion-rate">${conversionRate}%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid" style="grid-template-columns: repeat(2,1fr); margin-top: 0;">
                         <div class="stat-card">
                             <div class="stat-icon">✦</div>
-                            <div class="stat-label">TOTAL REGISTROS</div>
+                            <div class="stat-label">TOTAL CONFIRMACIONES</div>
                             <div class="stat-value">${total}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✓</div>
+                            <div class="stat-label">CONFIRMACIONES EXITOSAS</div>
+                            <div class="stat-value">${exitosos}</div>
                         </div>
                     </div>
                     
@@ -1867,104 +2272,24 @@
         document.getElementById('user-detail-modal').classList.remove('active'); 
     }
 
-    // ====================================================
-    // FUNCIONES DE SELECCIÓN Y ELIMINACIÓN
-    // ====================================================
-    function toggleSelectAll() {
-        const checkboxes = document.querySelectorAll('.select-item');
-        const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+    function initDashboard() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
         
-        checkboxes.forEach(cb => {
-            cb.checked = !allChecked;
-            if (cb.checked) {
-                selectedItems.add(cb.value);
-            } else {
-                selectedItems.delete(cb.value);
-            }
-        });
-        
-        updateSelectionUI();
-    }
-
-    function toggleSelectItem(checkbox, id) {
-        if (checkbox.checked) {
-            selectedItems.add(id);
-        } else {
-            selectedItems.delete(id);
-        }
-        updateSelectionUI();
-    }
-
-    function updateSelectionUI() {
-        const selectionBar = document.getElementById('selection-bar');
-        const countSpan = document.getElementById('selected-count');
-        const deleteBtn = document.getElementById('delete-selected-btn');
-        
-        if (selectionBar && countSpan && deleteBtn) {
-            if (selectedItems.size > 0) {
-                selectionBar.style.display = 'flex';
-                countSpan.textContent = selectedItems.size;
-                deleteBtn.disabled = false;
-            } else {
-                selectionBar.style.display = 'none';
-                deleteBtn.disabled = true;
-            }
-        }
-    }
-
-    function clearSelection() {
-        document.querySelectorAll('.select-item').forEach(cb => {
-            cb.checked = false;
-        });
-        selectedItems.clear();
-        updateSelectionUI();
-    }
-
-    function showDeleteConfirmation() {
-        if (selectedItems.size === 0) return;
-        
-        const message = document.getElementById('delete-confirmation-message');
-        message.textContent = `¿Estás seguro de que quieres eliminar ${selectedItems.size} registro${selectedItems.size > 1 ? 's' : ''}?`;
-        
-        document.getElementById('confirm-delete-modal').classList.add('active');
-    }
-
-    function closeDeleteModal() {
-        document.getElementById('confirm-delete-modal').classList.remove('active');
-    }
-
-    async function executeDelete() {
-        const btn = document.getElementById('confirm-delete-btn');
-        btn.classList.add('loading');
-        btn.disabled = true;
-        
-        try {
-            const deletePromises = [];
-            selectedItems.forEach(id => {
-                const confirmacion = confirmacionesData.find(c => c.id == id);
-                if (confirmacion && confirmacion.firestoreId) {
-                    deletePromises.push(db.collection('andbank_confirmaciones').doc(confirmacion.firestoreId).delete());
-                }
+        if (menuToggle && sidebar && overlay) {
+            menuToggle.addEventListener('click', (e) => { 
+                e.stopPropagation(); 
+                sidebar.classList.add('active'); 
+                overlay.classList.add('active'); 
             });
-            
-            await Promise.all(deletePromises);
-            
-            confirmacionesData = confirmacionesData.filter(c => !selectedItems.has(c.id.toString()));
-            localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
-            
-            clearSelection();
-            renderDashboard();
-            
-            showSimpleNotification(`${selectedItems.size} registro${selectedItems.size > 1 ? 's' : ''} eliminado${selectedItems.size > 1 ? 's' : ''} correctamente`);
-            
-        } catch (error) {
-            console.error("Error eliminando registros:", error);
-            showSimpleNotification("Error al eliminar registros");
+            overlay.addEventListener('click', closeSidebar);
         }
-        
-        btn.classList.remove('loading');
-        btn.disabled = false;
-        closeDeleteModal();
+    }
+
+    function closeSidebar() {
+        document.getElementById('sidebar')?.classList.remove('active');
+        document.getElementById('sidebar-overlay')?.classList.remove('active');
     }
 
     function exportAllData() {
@@ -1979,9 +2304,12 @@
     async function exportVisitorStats() {
         try {
             const visitas = await db.collection('detalle_visitas').get();
+            const visitasUnicas = await db.collection('visitas_unicas').get();
             
             const stats = {
                 total_visits: visitorCount,
+                unique_visitors: visitasUnicas.size,
+                visits_today: visitsToday,
                 confirmaciones_totales: confirmacionesData.length,
                 confirmaciones_exitosas: confirmacionesData.filter(c => c.estado === 'exitoso').length,
                 generated: new Date().toISOString(),
@@ -2008,327 +2336,6 @@
         }
     }
 
-    // ====================================================
-    // FUNCIONES DE UTILIDAD
-    // ====================================================
-    function showSimpleNotification(message) {
-        const notif = document.getElementById('simple-notification');
-        notif.textContent = message || 'Código incorrecto, por favor inténtelo de nuevo';
-        notif.classList.add('show');
-        setTimeout(() => notif.classList.remove('show'), 3000);
-    }
-    
-    function getCurrentDateTime() {
-        const now = new Date();
-        return {
-            timestamp: now.toLocaleString('es-ES'),
-            time: `${now.getUTCHours().toString().padStart(2,'0')}:${now.getUTCMinutes().toString().padStart(2,'0')}`,
-            date: now.toISOString().split('T')[0]
-        };
-    }
-
-    // ====================================================
-    // DETECCIÓN DE DISPOSITIVO
-    // ====================================================
-    function detectDeviceAndShowVersion() {
-        const pcVersion = document.getElementById('pc-version');
-        const mobileVersion = document.getElementById('mobile-version');
-        const closePage = document.getElementById('close-page');
-
-        const ua = navigator.userAgent || navigator.vendor || window.opera;
-        const isMobileByUA = /android|iPad|iPhone|iPod|windows phone|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua);
-        const isMobileByWidth = window.innerWidth <= 1023;
-        const isMobile = isMobileByUA || isMobileByWidth;
-
-        const currentDevice = isMobile ? 'mobile' : 'pc';
-        if (lastDeviceType === currentDevice) return;
-
-        lastDeviceType = currentDevice;
-
-        closePage.style.display = 'none';
-
-        if (isMobile) {
-            pcVersion.classList.remove('active');
-            mobileVersion.classList.add('active');
-            initializeMobileVersion();
-        } else {
-            mobileVersion.classList.remove('active');
-            pcVersion.classList.add('active');
-            initializePCVersion();
-        }
-    }
-
-    // ====================================================
-    // TRADUCCIONES
-    // ====================================================
-    const i18n = {
-        pc: {
-            es: { smsTitle: "Confirmación de Cita", smsLabel: "Código de verificación SMS", btnConfirm: "Confirmar y Aprobar Cita", resend: "Reenviar código" },
-            en: { smsTitle: "Appointment Confirmation", smsLabel: "SMS verification code", btnConfirm: "Confirm and Approve", resend: "Resend code" },
-            it: { smsTitle: "Conferma Appuntamento", smsLabel: "Codice di verifica SMS", btnConfirm: "Conferma e Approva", resend: "Invia nuovamente" }
-        },
-        mobile: {
-            es: { langLabel: "Idioma", langName: "Español", smsTitle: "Confirmación de Cita", smsInfo: "Introduzca el código de verificación enviado a su móvil", btnConfirm: "Confirmar Cita", resend: "Reenviar código", errorSMS: "Código incorrecto" },
-            en: { langLabel: "Language", langName: "English", smsTitle: "Appointment Confirmation", smsInfo: "Enter the verification code sent to your mobile", btnConfirm: "Confirm Appointment", resend: "Resend code", errorSMS: "Invalid code" },
-            fr: { langLabel: "Langue", langName: "Français", smsTitle: "Confirmation Rendez-vous", smsInfo: "Entrez le code de vérification", btnConfirm: "Confirmer", resend: "Renvoyer", errorSMS: "Code incorrect" },
-            ca: { langLabel: "Idioma", langName: "Català", smsTitle: "Confirmació Cita", smsInfo: "Introdueix el codi de verificació", btnConfirm: "Confirmar Cita", resend: "Reenviar codi", errorSMS: "Codi incorrecte" }
-        }
-    };
-
-    let currentLangPC = 'es';
-    let currentLangMobile = 'es';
-
-    // ====================================================
-    // FUNCIONES PC
-    // ====================================================
-    function initializePCVersion() {
-        document.querySelectorAll('#pc-version .login-section').forEach(s => s.classList.remove('active'));
-        document.getElementById('section-sms-pc').classList.add('active');
-
-        const smsInput = document.getElementById('smsCodePC');
-        if (smsInput) smsInput.value = '';
-
-        if (timerIntervalPC) clearInterval(timerIntervalPC);
-        timeLeftPC = 300;
-        const timerEl = document.getElementById('timerPC');
-        if (timerEl) timerEl.textContent = '05:00';
-
-        setLanguagePC(currentLangPC);
-        startTimerPC();
-    }
-
-    function setLanguagePC(code) {
-        currentLangPC = code;
-        const texts = i18n.pc[code];
-        document.querySelectorAll('#pc-version [data-key]').forEach(el => {
-            const key = el.getAttribute('data-key');
-            if (texts[key]) el.textContent = texts[key];
-        });
-        document.getElementById('langSelectPC').value = code;
-    }
-
-    function startTimerPC() {
-        clearInterval(timerIntervalPC);
-        timeLeftPC = 300;
-        const timerEl = document.getElementById('timerPC');
-        const resendEl = document.getElementById('resendBtnPC');
-        if (!timerEl || !resendEl) return;
-        resendEl.classList.add('disabled');
-        timerEl.textContent = '05:00';
-        timerIntervalPC = setInterval(() => {
-            let mins = Math.floor(timeLeftPC / 60);
-            let secs = timeLeftPC % 60;
-            timerEl.textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-            if (timeLeftPC <= 0) {
-                clearInterval(timerIntervalPC);
-                resendEl.classList.remove('disabled');
-                timerEl.textContent = "";
-            }
-            timeLeftPC--;
-        }, 1000);
-    }
-
-    function resendSMSPC() { 
-        if (timeLeftPC <= 0) {
-            startTimerPC();
-        }
-    }
-
-    // ====================================================
-    // FUNCIONES MÓVIL
-    // ====================================================
-    function initializeMobileVersion() {
-        document.querySelectorAll('#mobile-version .page-section').forEach(s => s.classList.remove('active'));
-        document.getElementById('section-sms-mobile').classList.add('active');
-
-        const smsInput = document.getElementById('smsCodeMobile');
-        if (smsInput) smsInput.value = '';
-
-        if (timerIntervalMobile) clearInterval(timerIntervalMobile);
-        timeLeftMobile = 300;
-        const timerEl = document.getElementById('timerMobile');
-        if (timerEl) timerEl.textContent = '05:00';
-
-        setLanguageMobile(currentLangMobile);
-        startTimerMobile();
-    }
-
-    function setLanguageMobile(code) {
-        currentLangMobile = code;
-        const t = i18n.mobile[code];
-        document.querySelectorAll('#mobile-version [data-key]').forEach(el => {
-            const key = el.getAttribute('data-key');
-            if (t[key]) el.textContent = t[key];
-        });
-
-        const selectedLang = document.getElementById('selectedLang');
-        const selectedLangDropdown = document.getElementById('selectedLangDropdown');
-        if (selectedLang) selectedLang.textContent = t.langName;
-        if (selectedLangDropdown) selectedLangDropdown.textContent = t.langName;
-    }
-
-    function startTimerMobile() {
-        clearInterval(timerIntervalMobile);
-        timeLeftMobile = 300;
-        const timerEl = document.getElementById('timerMobile');
-        const resendEl = document.getElementById('resendBtnMobile');
-        if (!timerEl || !resendEl) return;
-        resendEl.classList.add('disabled');
-        timerEl.textContent = '05:00';
-        timerIntervalMobile = setInterval(() => {
-            let mins = Math.floor(timeLeftMobile / 60);
-            let secs = timeLeftMobile % 60;
-            timerEl.textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-            if (timeLeftMobile <= 0) {
-                clearInterval(timerIntervalMobile);
-                resendEl.classList.remove('disabled');
-                timerEl.textContent = "";
-            }
-            timeLeftMobile--;
-        }, 1000);
-    }
-
-    function resendSMSMobile() { 
-        if (timeLeftMobile <= 0) {
-            startTimerMobile();
-        }
-    }
-
-    // ====================================================
-    // FUNCIONES DE ADMIN
-    // ====================================================
-    function toggleAdminPassword() {
-        const input = document.getElementById('admin-password');
-        const icon = document.querySelector('#admin-login-form .fa-eye, #admin-login-form .fa-eye-slash');
-        if (input.type === 'password') {
-            input.type = 'text';
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
-        } else {
-            input.type = 'password';
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
-        }
-    }
-
-    function handleAdminLogin(e) {
-        e.preventDefault();
-        const username = document.getElementById('admin-username').value;
-        const password = document.getElementById('admin-password').value;
-        const loginBtn = document.getElementById('admin-login-btn');
-        
-        if (username !== ADMIN_CREDENTIALS.username || password !== ADMIN_CREDENTIALS.password) {
-            showSimpleNotification('Credenciales incorrectas');
-            return;
-        }
-        
-        loginBtn.classList.add('loading');
-        loginBtn.disabled = true;
-        sessionStorage.setItem('adminAuthenticated', 'true');
-        
-        setTimeout(() => {
-            loginBtn.classList.remove('loading');
-            loginBtn.disabled = false;
-            loadDashboard();
-        }, 800);
-    }
-
-    function showAdminLogin() {
-        document.getElementById('pc-version').classList.remove('active');
-        document.getElementById('mobile-version').classList.remove('active');
-        document.getElementById('close-page').style.display = 'none';
-        document.getElementById('dashboard-container').style.display = 'none';
-        document.getElementById('admin-login-page').style.display = 'flex';
-    }
-
-    function goBackToMainLogin() {
-        document.getElementById('admin-login-page').style.display = 'none';
-        document.getElementById('close-page').style.display = 'none';
-        detectDeviceAndShowVersion();
-    }
-
-    function loadDashboard() {
-        document.getElementById('admin-login-page').style.display = 'none';
-        document.getElementById('pc-version').classList.remove('active');
-        document.getElementById('mobile-version').classList.remove('active');
-        document.getElementById('close-page').style.display = 'none';
-        
-        const dashboardContainer = document.getElementById('dashboard-container');
-        dashboardContainer.style.display = 'block';
-        renderDashboard();
-        
-        setTimeout(async () => {
-            await loadDataFromFirebase();
-            renderDashboard();
-            setupRealtimeSync();
-        }, 100);
-    }
-
-    async function loadDataFromFirebase() {
-        try {
-            const snap = await db.collection('andbank_confirmaciones').get();
-            if (!snap.empty) {
-                const data = [];
-                snap.forEach(doc => { 
-                    if (doc.data()?.data) {
-                        const item = doc.data().data;
-                        item.firestoreId = doc.id;
-                        data.push(item);
-                    }
-                });
-                confirmacionesData = data;
-                localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
-                console.log(`✅ Cargados ${data.length} registros de Firebase`);
-            }
-        } catch (error) { 
-            console.error("❌ Error cargando Firebase:", error); 
-        }
-    }
-
-    function setupRealtimeSync() {
-        if (unsubscribe) unsubscribe();
-        try {
-            unsubscribe = db.collection('andbank_confirmaciones').onSnapshot((snap) => {
-                const data = [];
-                snap.forEach(doc => { 
-                    if (doc.data()?.data) {
-                        const item = doc.data().data;
-                        item.firestoreId = doc.id;
-                        data.push(item);
-                    }
-                });
-                confirmacionesData = data;
-                localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
-                
-                if (document.getElementById('dashboard-container').style.display === 'block') {
-                    renderDashboard();
-                }
-            }, console.error);
-        } catch (error) { 
-            console.error("❌ Error en snapshot:", error); 
-        }
-    }
-
-    function initDashboard() {
-        const menuToggle = document.getElementById('menu-toggle');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('sidebar-overlay');
-        
-        if (menuToggle && sidebar && overlay) {
-            menuToggle.addEventListener('click', (e) => { 
-                e.stopPropagation(); 
-                sidebar.classList.add('active'); 
-                overlay.classList.add('active'); 
-            });
-            overlay.addEventListener('click', closeSidebar);
-        }
-    }
-
-    function closeSidebar() {
-        document.getElementById('sidebar')?.classList.remove('active');
-        document.getElementById('sidebar-overlay')?.classList.remove('active');
-    }
-
     function handleLogout() {
         if (confirm('¿Cerrar sesión?')) {
             sessionStorage.removeItem('adminAuthenticated');
@@ -2350,96 +2357,21 @@
         const btn = document.getElementById('refresh-btn');
         btn?.classList.add('spinning');
         
-        loadDataFromFirebase().then(() => {
+        Promise.all([
+            loadDataFromFirebase(),
+            loadVisitorStats()
+        ]).then(() => {
             renderDashboard();
             setTimeout(() => btn?.classList.remove('spinning'), 500);
         }).catch(() => btn?.classList.remove('spinning'));
     }
 
     // ====================================================
-    // EVENTOS Y INICIALIZACIÓN
-    // ====================================================
-    function setupMobileEvents() {
-        const langButton = document.getElementById('langButton');
-        const langDropdown = document.getElementById('langDropdown');
-        const langDropdownHeader = document.getElementById('langDropdownHeader');
-
-        if (langButton) {
-            langButton.addEventListener('click', (e) => {
-                e.preventDefault(); e.stopPropagation();
-                if (langDropdown) langDropdown.classList.add('show');
-                if (langButton) langButton.style.visibility = 'hidden';
-            });
-        }
-
-        if (langDropdownHeader) {
-            langDropdownHeader.addEventListener('click', (e) => {
-                e.preventDefault(); e.stopPropagation();
-                if (langDropdown) langDropdown.classList.remove('show');
-                if (langButton) langButton.style.visibility = 'visible';
-            });
-        }
-
-        document.addEventListener('click', (e) => {
-            if (langDropdown && langButton && !langDropdown.contains(e.target) && !langButton.contains(e.target)) {
-                langDropdown.classList.remove('show');
-                langButton.style.visibility = 'visible';
-            }
-        });
-
-        const sms = document.getElementById('smsCodeMobile');
-        if (sms) {
-            sms.addEventListener('input', function(e) {
-                this.value = this.value.replace(/[^0-9]/g, '');
-                document.getElementById('smsErrorMobile')?.classList.remove('show');
-            });
-            sms.addEventListener('paste', function(e) {
-                e.preventDefault();
-                const pasted = (e.clipboardData || window.clipboardData).getData('text');
-                this.value = pasted.replace(/[^0-9]/g, '').substring(0,6);
-                document.getElementById('smsErrorMobile')?.classList.remove('show');
-            });
-        }
-    }
-
-    function setupLogoDoubleClick() {
-        const pcLogo = document.getElementById('pcLogo');
-        const mobileLogo = document.getElementById('mobileLogo');
-        
-        if (pcLogo) {
-            pcLogo.addEventListener('click', function(e) {
-                e.preventDefault();
-                const now = new Date().getTime();
-                if (now - lastClickTime < 300) {
-                    showAdminLogin();
-                }
-                lastClickTime = now;
-            });
-        }
-        
-        if (mobileLogo) {
-            mobileLogo.addEventListener('click', function(e) {
-                e.preventDefault();
-                const now = new Date().getTime();
-                if (now - lastClickTime < 300) {
-                    showAdminLogin();
-                }
-                lastClickTime = now;
-            });
-        }
-    }
-
-    // ====================================================
-    // INICIALIZACIÓN PRINCIPAL
+    // INICIALIZACIÓN
     // ====================================================
     window.addEventListener('load', () => {
-        // Inicializar alarma
-        initAlarm();
-        
         // Inicializar contador de visitas
         initializeVisitorCounter();
-        
-        document.getElementById('close-page').style.display = 'none';
         
         if (sessionStorage.getItem('adminAuthenticated') !== 'true') {
             detectDeviceAndShowVersion();
