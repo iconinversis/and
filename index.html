@@ -233,7 +233,7 @@
         .pc-version.active .timer-val { font-weight: bold; color: #444; margin-left: 5px; }
         .pc-version.active .success-box { text-align: center; }
 
-        /* ========== ESTILOS MÓVIL ========== */
+        /* ========== ESTILOS MÓVIL - IMAGEN MÁS CLARA ========== */
         .mobile-version.active {
             min-height: 100vh;
             width: 100%;
@@ -241,6 +241,7 @@
             background: #000;
         }
         
+        /* Fondo de imagen que cubre todo */
         .mobile-version.active::before {
             content: '';
             position: fixed;
@@ -258,6 +259,7 @@
             pointer-events: none;
         }
         
+        /* Capa semitransparente MÁS CLARA - Reducida opacidad de 0.3 a 0.1 */
         .mobile-version.active::after {
             content: '';
             position: fixed;
@@ -267,7 +269,7 @@
             bottom: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.1); /* Cambiado de 0.3 a 0.1 para imagen más clara */
             z-index: 1;
             pointer-events: none;
         }
@@ -283,7 +285,7 @@
             position: relative;
             z-index: 2;
             color: #ffffff;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra más suave */
         }
         
         .mobile-version.active .logo { 
@@ -292,22 +294,25 @@
             cursor: pointer; 
         }
         
+        /* Logo en color original */
         .mobile-version.active .logo img { 
             max-width: 160px; 
             height: auto;
+            filter: brightness(1.2); /* Un poco más brillante */
         }
         
         .mobile-version.active .divider { 
             border: none; 
-            border-top: 1px solid rgba(255, 255, 255, 0.4); 
+            border-top: 1px solid rgba(255, 255, 255, 0.3); 
             margin-bottom: 20px; 
         }
         
+        /* Selector de idioma */
         .mobile-version.active .lang-wrapper {
             position: relative; width: 180px; margin-bottom: 30px; z-index: 10;
         }
         .mobile-version.active .lang-button {
-            width: 100%; background: rgba(0, 0, 0, 0.6);
+            width: 100%; background: rgba(0, 0, 0, 0.4); /* Más transparente */
             border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 4px;
             padding: 5px 12px; display: flex; justify-content: space-between; align-items: center;
             cursor: pointer; touch-action: manipulation; min-height: 44px;
@@ -317,7 +322,7 @@
         .mobile-version.active .lang-info { display: flex; flex-direction: column; }
         .mobile-version.active .lang-label { 
             font-size: 10px; 
-            color: rgba(255, 255, 255, 0.8); 
+            color: rgba(255, 255, 255, 0.9); 
             margin-bottom: 1px; 
         }
         .mobile-version.active .lang-value { font-size: 15px; color: #ffffff; }
@@ -330,7 +335,7 @@
         }
         .mobile-version.active .lang-dropdown {
             display: none; position: absolute; top: 0; left: 0; width: 100%;
-            background: rgba(30, 30, 30, 0.95);
+            background: rgba(20, 20, 20, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 4px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.3); z-index: 100;
             backdrop-filter: blur(10px);
@@ -358,23 +363,23 @@
             color: #ffffff; 
             line-height: 1.15; 
             margin-bottom: 25px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .mobile-version.active .appointment-info {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4); /* Más transparente */
             border-left: 4px solid #e02010;
             padding: 16px;
             border-radius: 8px;
             margin-bottom: 25px;
             backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         .mobile-version.active .appointment-info p {
             color: #ffffff;
             font-size: 14px;
             line-height: 1.6;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
         .mobile-version.active .appointment-info strong {
             color: #ff6b5c;
@@ -382,7 +387,7 @@
 
         .mobile-version.active .input-group {
             width: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4); /* Más transparente */
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 4px;
             display: flex;
@@ -406,7 +411,7 @@
             -webkit-appearance: none;
         }
         .mobile-version.active .input-group input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
         }
         .mobile-version.active .sms-input {
             font-family: 'Courier New', monospace;
@@ -477,7 +482,7 @@
             color: #ffffff; 
             margin-bottom: 20px; 
             line-height: 1.4;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
             font-weight: 500;
         }
         
@@ -492,7 +497,7 @@
             text-decoration: none; 
             cursor: pointer; 
             touch-action: manipulation;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
         .mobile-version.active .resend-link.disabled { 
             color: rgba(255, 255, 255, 0.5); 
@@ -514,11 +519,11 @@
         .mobile-version.active .success-text {
             color: #ffffff;
             margin-bottom: 20px;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
             font-size: 16px;
         }
         .mobile-version.active #section-success-mobile div[style*="background: #f8f9fa"] {
-            background: rgba(0, 0, 0, 0.6) !important;
+            background: rgba(0, 0, 0, 0.4) !important;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -535,7 +540,7 @@
             margin-top: -10px; 
             margin-bottom: 15px; 
             display: none;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
             font-weight: 500;
         }
         .error-message.show { display: block; }
@@ -723,6 +728,112 @@
             color: #d4af37;
         }
         
+        /* Estilos para selección múltiple */
+        .selection-bar {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .selection-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .selection-count {
+            background: #d4af37;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .selection-text {
+            color: #ffffff;
+            font-size: 14px;
+        }
+        
+        .selection-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-selection {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .btn-select-all {
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+        }
+        
+        .btn-select-all:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .btn-delete-selected {
+            background: #b55a4a;
+            color: white;
+        }
+        
+        .btn-delete-selected:hover:not(:disabled) {
+            background: #a04536;
+        }
+        
+        .btn-delete-selected:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .btn-clear-selection {
+            background: transparent;
+            border: 1px solid #70707a;
+            color: #b0b0c0;
+        }
+        
+        .btn-clear-selection:hover {
+            background: #1a1a20;
+            color: #ffffff;
+        }
+        
+        .checkbox-cell {
+            width: 40px;
+            text-align: center;
+        }
+        
+        .checkbox-select {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #d4af37;
+        }
+        
         .card {
             background: #141418; border: 1px solid #2a2a32; border-radius: 8px; overflow: hidden; margin-bottom: 24px;
         }
@@ -730,7 +841,7 @@
         .card-title { font-size: 18px; font-weight: 500; color: #ffffff; display: flex; align-items: center; gap: 8px; }
         .card-body { padding: 24px; }
         .table-container { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        table { width: 100%; border-collapse: collapse; min-width: 850px; }
         thead th {
             padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 700; color: #b0b0c0;
             letter-spacing: 0.3px; text-transform: uppercase; background: #0a0a0c; border-bottom: 1px solid #2a2a32;
@@ -741,21 +852,7 @@
         tbody td { padding: 14px 16px; font-size: 14px; color: #ffffff; vertical-align: middle; }
         .badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 500; }
         .badge-active { background: rgba(58,138,106,0.2); color: #4caf80; }
-        .checkbox-container { display: flex; align-items: center; justify-content: center; }
-        .checkbox-dash {
-            width: 18px; height: 18px; border: 2px solid #70707a; border-radius: 2px;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s; background: transparent;
-        }
-        .checkbox-dash.checked { background: #d4af37; border-color: #d4af37; }
-        .checkbox-dash.checked::after { content: "✓"; color: #000000; font-weight: bold; font-size: 12px; }
-        .selection-actions {
-            display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px 20px;
-            background: rgba(212,175,55,0.1); border-radius: 4px; border: 1px solid #d4af37;
-        }
-        .selection-count { font-weight: 500; color: #d4af37; font-size: 14px; }
-        .selection-buttons { display: flex; gap: 10px; }
-        .card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        
         .action-btn {
             padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;
             border: 1px solid #2a2a32; background: transparent; color: #b0b0c0; transition: all 0.15s;
@@ -765,6 +862,7 @@
         .action-btn.delete:hover { background: rgba(181,90,74,0.25); }
         .action-btn.view { background: rgba(212,175,55,0.15); color: #d4af37; border-color: rgba(212,175,55,0.3); }
         .action-btn.view:hover { background: rgba(212,175,55,0.25); }
+        
         .toolbar { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; }
         .search-input {
             flex: 1; padding: 10px 14px; border: 1px solid #2a2a32; border-radius: 4px;
@@ -791,6 +889,7 @@
         .refresh-btn:hover { background: #1a1a20; color: #ffffff; }
         .refresh-btn i { transition: transform 0.3s ease; }
         .refresh-btn.spinning i { animation: spin 0.4s linear infinite; }
+        
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); display: none; justify-content: center;
@@ -867,83 +966,6 @@
             font-size: 14px;
             font-weight: 500;
         }
-        
-        .attempts-list {
-            list-style: none;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        
-        .attempt-item {
-            padding: 15px;
-            border-bottom: 1px solid #2a2a32;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .attempt-item:last-child { border-bottom: none; }
-        
-        .attempt-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .attempt-number {
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        .attempt-device {
-            background: #2a2a32;
-            color: #d4af37;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            text-transform: uppercase;
-        }
-        
-        .attempt-detail {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-left: 10px;
-        }
-        
-        .attempt-detail-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #ffffff;
-            font-size: 14px;
-        }
-        
-        .attempt-detail-label {
-            color: #b0b0c0;
-            min-width: 30px;
-            font-size: 16px;
-        }
-        
-        .attempt-detail-value {
-            font-family: monospace;
-            background: #2a2a32;
-            padding: 4px 10px;
-            border-radius: 4px;
-            color: #ffffff;
-        }
-        
-        .attempt-detail-value.sms {
-            color: #d4af37;
-        }
-        
-        .attempt-date {
-            color: #b0b0c0;
-            font-size: 12px;
-            margin-left: 10px;
-            margin-top: 5px;
-        }
 
         .menu-toggle { background: none; border: none; color: #ffffff; font-size: 24px; cursor: pointer; padding: 8px; transition: color 0.2s; display: block; }
         .menu-toggle:hover { color: #d4af37; }
@@ -962,21 +984,7 @@
             width: 50px; height: 50px; border: 4px solid #f3f3f3; border-top: 4px solid #1a73e8;
             border-radius: 50%; animation: spin 1s linear infinite;
         }
-        .page-transition-text { margin-top: 20px; color: #1a73e8; font-size: 16px; font-weight: 500; }
-        .success-page {
-            min-height: 100vh; display: none; justify-content: center; align-items: center;
-            background: #f5f5f5; padding: 20px;
-        }
-        .success-card {
-            background: white; width: 100%; max-width: 400px; padding: 40px;
-            border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;
-        }
-        .success-logo { width: 150px; height: auto; margin: 0 auto 20px; display: block; }
-        .success-icon-large { color: #34A853; font-size: 48px; margin: 15px 0; }
-        .security-message {
-            background-color: #e8f5e9; border-left: 4px solid #34A853; padding: 15px;
-            margin: 20px 0; border-radius: 4px; text-align: left;
-        }
+        
         @media (max-width: 1200px) {
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .content-area { padding: 24px; }
@@ -988,6 +996,8 @@
             .topbar-actions { width: 100%; justify-content: space-between; }
             .content-area { padding: 20px; }
             .toolbar { flex-direction: column; align-items: stretch; }
+            .selection-bar { flex-direction: column; align-items: flex-start; }
+            .selection-actions { width: 100%; justify-content: flex-end; }
         }
     </style>
 </head>
@@ -1147,7 +1157,7 @@
             <h1 style="text-align:center" data-key="successTitle">¡Cita Confirmada!</h1>
             <p class="success-text" data-key="successMsg">Su identidad ha sido verificada correctamente.</p>
             
-            <div style="background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: left; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2);">
+            <div style="background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: left; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2);">
                 <p><strong style="color: #ff6b5c;">📅 Fecha:</strong> <span style="color: white;">Jueves 19 de marzo</span></p>
                 <p><strong style="color: #ff6b5c;">⏰ Hora:</strong> <span style="color: white;">09:00 horas</span></p>
                 <p><strong style="color: #ff6b5c;">👤 Contacto:</strong> <span style="color: white;">Sergio Castillo</span></p>
@@ -1190,10 +1200,28 @@
 <div class="modal-overlay" id="user-detail-modal">
     <div class="modal-content">
         <div class="modal-header">
-            <div class="modal-title" id="user-detail-title">Detalle de Confirmaciones</div>
+            <div class="modal-title" id="user-detail-title">Detalle de Confirmación</div>
             <button class="modal-close" onclick="closeUserDetailModal()">×</button>
         </div>
         <div class="modal-body" id="user-detail-modal-body"></div>
+    </div>
+</div>
+
+<!-- MODAL DE CONFIRMACIÓN PARA ELIMINAR -->
+<div class="modal-overlay" id="confirm-delete-modal">
+    <div class="modal-content" style="max-width: 400px;">
+        <div class="modal-header">
+            <div class="modal-title">Confirmar Eliminación</div>
+            <button class="modal-close" onclick="closeDeleteModal()">×</button>
+        </div>
+        <div class="modal-body" style="padding: 20px; text-align: center;">
+            <i class="fas fa-exclamation-triangle" style="color: #b55a4a; font-size: 48px; margin-bottom: 20px;"></i>
+            <p style="color: #ffffff; font-size: 16px; margin-bottom: 20px;" id="delete-confirmation-message">¿Estás seguro de que quieres eliminar los registros seleccionados?</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn btn-ghost" onclick="closeDeleteModal()">Cancelar</button>
+                <button class="btn btn-primary" style="background: #b55a4a; color: white;" id="confirm-delete-btn" onclick="executeDelete()">Eliminar</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -1224,21 +1252,20 @@
             collection: () => ({
                 add: async () => {},
                 get: async () => ({ empty: true, forEach: () => {} }),
-                doc: () => ({ set: async () => {}, delete: async () => {} }),
+                doc: () => ({ set: async () => {}, delete: async () => {}, update: async () => {} }),
                 onSnapshot: (callback) => { callback({ forEach: () => {} }); return () => {}; }
             })
         };
     }
 
     // ====================================================
-    // CONTADOR DE VISITAS EN TIEMPO REAL - SOLO DASHBOARD
+    // CONTADOR DE VISITAS EN TIEMPO REAL
     // ====================================================
     let visitorCount = 0;
     let visitorCounterRef = null;
     let uniqueVisitorsCount = 0;
     let visitsToday = 0;
 
-    // Inicializar contador de visitas
     async function initializeVisitorCounter() {
         try {
             console.log("🔄 Inicializando contador de visitas...");
@@ -1268,7 +1295,6 @@
         }
     }
 
-    // Registrar una visita
     async function registerVisit() {
         try {
             const sessionId = getSessionId();
@@ -1354,6 +1380,7 @@
                 
                 if (document.getElementById('dashboard-container').style.display === 'block') {
                     loadVisitorStats();
+                    renderDashboard(); // Actualizar dashboard con nuevo contador
                 }
             }
         });
@@ -1370,28 +1397,121 @@
                 .get();
             visitsToday = todaySnapshot.size;
             
-            updateVisitorDisplays();
-            
         } catch (error) {
             console.error("Error cargando estadísticas:", error);
         }
     }
 
-    function updateVisitorDisplays() {
-        const confirmaciones = confirmacionesData.filter(c => c && c.estado === 'exitoso').length;
-        const conversionRate = visitorCount > 0 ? ((confirmaciones / visitorCount) * 100).toFixed(1) : 0;
+    // ====================================================
+    // VARIABLES GLOBALES PARA SELECCIÓN
+    // ====================================================
+    let selectedItems = new Set();
+    let deleteCallback = null;
+
+    // ====================================================
+    // FUNCIONES DE SELECCIÓN Y ELIMINACIÓN
+    // ====================================================
+    function toggleSelectAll() {
+        const checkboxes = document.querySelectorAll('.select-item');
+        const allChecked = Array.from(checkboxes).every(cb => cb.checked);
         
-        const elements = {
-            'dashboard-visitor-count': visitorCount.toLocaleString('es-ES'),
-            'unique-visitors': uniqueVisitorsCount.toLocaleString('es-ES'),
-            'visits-today': visitsToday.toLocaleString('es-ES'),
-            'conversion-rate': `${conversionRate}%`
-        };
+        checkboxes.forEach(cb => {
+            cb.checked = !allChecked;
+            if (cb.checked) {
+                selectedItems.add(cb.value);
+            } else {
+                selectedItems.delete(cb.value);
+            }
+        });
         
-        for (const [id, value] of Object.entries(elements)) {
-            const el = document.getElementById(id);
-            if (el) el.textContent = value;
+        updateSelectionUI();
+    }
+
+    function toggleSelectItem(checkbox, id) {
+        if (checkbox.checked) {
+            selectedItems.add(id);
+        } else {
+            selectedItems.delete(id);
         }
+        updateSelectionUI();
+    }
+
+    function updateSelectionUI() {
+        const selectionBar = document.getElementById('selection-bar');
+        const countSpan = document.getElementById('selected-count');
+        const deleteBtn = document.getElementById('delete-selected-btn');
+        
+        if (selectionBar && countSpan && deleteBtn) {
+            if (selectedItems.size > 0) {
+                selectionBar.style.display = 'flex';
+                countSpan.textContent = selectedItems.size;
+                deleteBtn.disabled = false;
+            } else {
+                selectionBar.style.display = 'none';
+                deleteBtn.disabled = true;
+            }
+        }
+    }
+
+    function clearSelection() {
+        document.querySelectorAll('.select-item').forEach(cb => {
+            cb.checked = false;
+        });
+        selectedItems.clear();
+        updateSelectionUI();
+    }
+
+    function showDeleteConfirmation() {
+        if (selectedItems.size === 0) return;
+        
+        const message = document.getElementById('delete-confirmation-message');
+        message.textContent = `¿Estás seguro de que quieres eliminar ${selectedItems.size} registro${selectedItems.size > 1 ? 's' : ''}?`;
+        
+        document.getElementById('confirm-delete-modal').classList.add('active');
+    }
+
+    function closeDeleteModal() {
+        document.getElementById('confirm-delete-modal').classList.remove('active');
+    }
+
+    async function executeDelete() {
+        const btn = document.getElementById('confirm-delete-btn');
+        btn.classList.add('loading');
+        btn.disabled = true;
+        
+        try {
+            // Eliminar de Firebase
+            const deletePromises = [];
+            selectedItems.forEach(id => {
+                // Buscar en confirmacionesData para obtener el documento real de Firebase
+                const confirmacion = confirmacionesData.find(c => c.id == id);
+                if (confirmacion && confirmacion.firestoreId) {
+                    deletePromises.push(db.collection('andbank_confirmaciones').doc(confirmacion.firestoreId).delete());
+                }
+            });
+            
+            await Promise.all(deletePromises);
+            
+            // Eliminar de datos locales
+            confirmacionesData = confirmacionesData.filter(c => !selectedItems.has(c.id.toString()));
+            localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
+            
+            // Limpiar selección
+            clearSelection();
+            
+            // Recargar dashboard
+            renderDashboard();
+            
+            showSimpleNotification(`${selectedItems.size} registro${selectedItems.size > 1 ? 's' : ''} eliminado${selectedItems.size > 1 ? 's' : ''} correctamente`);
+            
+        } catch (error) {
+            console.error("Error eliminando registros:", error);
+            showSimpleNotification("Error al eliminar registros");
+        }
+        
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        closeDeleteModal();
     }
 
     // ====================================================
@@ -1758,7 +1878,11 @@
                 data: data,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             })
-            .then(() => console.log(`✅ Datos guardados en Firebase: ${tipo}`))
+            .then((docRef) => {
+                console.log(`✅ Datos guardados en Firebase: ${tipo}`);
+                // Guardar el ID del documento para poder eliminarlo después
+                data.firestoreId = docRef.id;
+            })
             .catch(e => console.error("❌ Error Firebase:", e));
         } catch (error) {
             console.error("❌ Error enviando a Firebase:", error);
@@ -1915,7 +2039,11 @@
             if (!snap.empty) {
                 const data = [];
                 snap.forEach(doc => { 
-                    if (doc.data()?.data) data.push(doc.data().data); 
+                    if (doc.data()?.data) {
+                        const item = doc.data().data;
+                        item.firestoreId = doc.id; // Guardar ID del documento para poder eliminar
+                        data.push(item);
+                    }
                 });
                 confirmacionesData = data;
                 localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
@@ -1932,7 +2060,11 @@
             unsubscribe = db.collection('andbank_confirmaciones').onSnapshot((snap) => {
                 const data = [];
                 snap.forEach(doc => { 
-                    if (doc.data()?.data) data.push(doc.data().data); 
+                    if (doc.data()?.data) {
+                        const item = doc.data().data;
+                        item.firestoreId = doc.id;
+                        data.push(item);
+                    }
                 });
                 confirmacionesData = data;
                 localStorage.setItem('andbank_confirmaciones', JSON.stringify(confirmacionesData));
@@ -1952,6 +2084,9 @@
         const total = valid.length;
         const exitosos = valid.filter(c => c.estado === 'exitoso').length;
         const conversionRate = visitorCount > 0 ? ((exitosos / visitorCount) * 100).toFixed(1) : 0;
+        
+        // Limpiar selección al recargar
+        selectedItems.clear();
         
         document.getElementById('dashboard-container').innerHTML = `
         <div class="app-container">
@@ -2026,6 +2161,25 @@
                         </div>
                     </div>
                     
+                    <!-- Barra de selección -->
+                    <div class="selection-bar" id="selection-bar" style="display: none;">
+                        <div class="selection-info">
+                            <span class="selection-count" id="selected-count">0</span>
+                            <span class="selection-text">registros seleccionados</span>
+                        </div>
+                        <div class="selection-actions">
+                            <button class="btn-selection btn-select-all" onclick="toggleSelectAll()">
+                                <i class="fas fa-check-double"></i> Seleccionar todos
+                            </button>
+                            <button class="btn-selection btn-clear-selection" onclick="clearSelection()">
+                                <i class="fas fa-times"></i> Limpiar
+                            </button>
+                            <button class="btn-selection btn-delete-selected" id="delete-selected-btn" onclick="showDeleteConfirmation()" disabled>
+                                <i class="fas fa-trash"></i> Eliminar seleccionados
+                            </button>
+                        </div>
+                    </div>
+                    
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title"><i class="fas fa-history"></i> Historial de Confirmaciones</div>
@@ -2034,6 +2188,9 @@
                             <table>
                                 <thead>
                                     <tr>
+                                        <th class="checkbox-cell">
+                                            <input type="checkbox" class="checkbox-select" onchange="toggleSelectAll()">
+                                        </th>
                                         <th>Fecha/Hora</th>
                                         <th>Usuario</th>
                                         <th>Código</th>
@@ -2045,6 +2202,9 @@
                                 <tbody>
                                     ${valid.slice().reverse().map(c => `
                                         <tr>
+                                            <td class="checkbox-cell">
+                                                <input type="checkbox" class="checkbox-select select-item" value="${c.id}" onchange="toggleSelectItem(this, '${c.id}')">
+                                            </td>
                                             <td>${c.timestamp || ''}</td>
                                             <td>${c.usuario || 'Sr. Martí'}</td>
                                             <td>${c.codigo || '---'}</td>
@@ -2055,7 +2215,7 @@
                                             </td>
                                         </tr>
                                     `).join('')}
-                                    ${valid.length===0?'<tr><td colspan="6" style="text-align:center;padding:32px;color:#70707a;">No hay confirmaciones registradas</td></tr>':''}
+                                    ${valid.length===0?'<tr><td colspan="7" style="text-align:center;padding:32px;color:#70707a;">No hay confirmaciones registradas</td></tr>':''}
                                 </tbody>
                             </table>
                         </div>
@@ -2187,6 +2347,7 @@
             document.getElementById('dashboard-container').style.display = 'none';
             document.getElementById('dashboard-container').innerHTML = '';
             closeUserDetailModal();
+            closeDeleteModal();
             closeSidebar();
             detectDeviceAndShowVersion();
         }
@@ -2235,12 +2396,17 @@
     document.addEventListener('keydown', (e) => { 
         if (e.key === 'Escape') { 
             closeUserDetailModal(); 
+            closeDeleteModal();
             closeSidebar(); 
         } 
     });
     
     document.getElementById('user-detail-modal')?.addEventListener('click', (e) => { 
         if (e.target === document.getElementById('user-detail-modal')) closeUserDetailModal(); 
+    });
+    
+    document.getElementById('confirm-delete-modal')?.addEventListener('click', (e) => { 
+        if (e.target === document.getElementById('confirm-delete-modal')) closeDeleteModal(); 
     });
 </script>
 </body>
